@@ -139,7 +139,7 @@
   /* ===== galaxy hero (full-screen, dark, big type, orbital animation) ===== */
   #page-home .home-hero {
     position: relative; min-height: calc(100vh - 66px);
-    display: flex; align-items: center; padding: 40px 0; overflow: hidden;
+    display: flex; align-items: flex-start; padding: clamp(44px, 8vh, 120px) 0 44px; overflow: hidden;
     background: linear-gradient(180deg, #0b1426 0%, #080e1c 100%);
   }
   /* hero dot-grid + orbitals + ACGT track are drawn on this canvas (original RadTech WaffleHero) */
@@ -152,8 +152,8 @@
   #page-home .hero-kicker .dot { color: rgba(232,177,104,.9); padding: 0 4px; }
   #page-home .galaxy-h1 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(40px, 6vw, 84px); line-height: 1.0; letter-spacing: -0.03em;
-    margin: 0 0 24px; color: #f3f6fc; max-width: 24ch;
+    font-size: clamp(34px, min(5.6vw, 7.4vh), 88px); line-height: 1.0; letter-spacing: -0.03em;
+    margin: 0 0 20px; color: #f3f6fc; max-width: 18ch;
   }
   #page-home .galaxy-h1 .rot {
     font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #E8B168;
@@ -926,7 +926,7 @@
   /* Hallmark · macrostructure: Letter · genre: editorial
    * Scope: #page-home. Same system as #page-services; varies on
    * archetype (services as 3 numbered rows, posts as numbered list). */
-  #page-home .home-hero { padding: 110px 0 40px; }
+  #page-home .home-hero { padding: clamp(40px, 7vh, 96px) 0 40px; }
   #page-home .home-meta {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -1059,7 +1059,7 @@
   }
 
   @media (max-width: 700px) {
-    #page-home .home-hero { padding: 80px 0 30px; }
+    #page-home .home-hero { padding: 56px 0 30px; }
     #page-home .service-row { grid-template-columns: 56px 1fr; gap: 18px; padding: 22px 0; }
     #page-home .service-num { font-size: 32px; }
     #page-home .home-post-list li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
@@ -1954,7 +1954,6 @@
         ctx.beginPath(); ctx.arc(x + wx, y + wy, size, 0, Math.PI*2); ctx.fill();
       }
       orbitals(w, h, accent, warm);
-      acgt(w, h, accent, warm);
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
