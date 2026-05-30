@@ -152,7 +152,7 @@
     opacity: .55;
   }
   #page-home .home-hero .container-narrow { position: relative; z-index: 2; width: 100%; }
-  #page-home .galaxy-chips { display: flex; gap: 10px; margin: 0 0 28px; flex-wrap: wrap; }
+  #page-home .galaxy-chips { display: flex; gap: 10px; margin: 0 0 20px; flex-wrap: wrap; }
   #page-home .galaxy-chips span {
     font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
     color: #6FE3D8; border: 1px solid rgba(111,227,216,.4); border-radius: 6px; padding: 5px 11px;
@@ -160,16 +160,17 @@
   #page-home .galaxy-chips span.warm { color: #E8B168; border-color: rgba(232,177,104,.4); }
   #page-home .galaxy-h1 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(46px, 7.8vw, 120px); line-height: .98; letter-spacing: -0.03em;
-    margin: 0 0 30px; color: #f3f6fc; max-width: 17ch;
+    font-size: clamp(32px, 4.3vw, 62px); line-height: 1.05; letter-spacing: -0.02em;
+    margin: 0 0 22px; color: #f3f6fc; max-width: 16ch;
   }
   #page-home .galaxy-h1 .rot {
     font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #E8B168;
     display: inline-block; transition: opacity .35s ease, transform .35s ease; will-change: opacity, transform;
   }
   #page-home .galaxy-h1 .rot.swap { opacity: 0; transform: translateY(10px); }
-  #page-home .home-hero .home-lede { color: rgba(230,236,245,.84); }
-  #page-home .home-hero .home-context { color: rgba(230,236,245,.6); }
+  #page-home .home-hero { padding: 28px 0; }
+  #page-home .home-hero .home-lede { color: rgba(230,236,245,.84); font-size: clamp(18px, 1.9vw, 23px); margin-bottom: 16px; }
+  #page-home .home-hero .home-context { color: rgba(230,236,245,.6); margin-bottom: 26px; }
   #page-home .home-hero .cta-primary { background: #6FE3D8; color: #07131f; }
   #page-home .home-hero .cta-primary:hover { opacity: .9; }
   #page-home .home-hero .home-second { color: #6FE3D8; border-bottom-color: rgba(111,227,216,.4); }
@@ -1187,12 +1188,12 @@
 <main class="page active" id="page-services">
   <section class="letter-intro">
     <div class="container-narrow">
-      <p class="letter-meta">RadTech · Services &amp; pricing · Life sciences only</p>
+      <p class="letter-meta">RadTech · Services &amp; pricing</p>
       <h1 class="letter-h1">
-        I help biopharma teams turn <span class="serif-i">expensive</span> data bottlenecks into shipped pipelines.
+        I help technical teams turn <span class="serif-i">expensive</span> data bottlenecks into shipped systems.
       </h1>
       <p class="letter-lede">
-        AI and data strategy for drug discovery, from someone who has run cross-functional programs at ENPICOM, Novartis Data42, Genialis, and The Hyve. Three engagement shapes, explicit fees, honest scoping. No retainer dance.
+        AI and data strategy for teams doing hard, technical work, from someone who has run cross-functional programs at ENPICOM, Novartis Data42, Genialis, and The Hyve. Three engagement shapes, explicit fees, honest scoping. No retainer dance.
       </p>
     </div>
   </section>
@@ -1203,7 +1204,7 @@
         <div class="service-num">01</div>
         <div class="service-body">
           <h2>AI strategy &amp; business cases</h2>
-          <p>From hypothesis to funded program: opportunity sizing, build-versus-buy, and an AI roadmap your scientists and your board both believe. The work that decides where AI earns its keep in your discovery pipeline, and where it is theatre.</p>
+          <p>From hypothesis to funded program: opportunity sizing, build-versus-buy, and an AI roadmap your team and your board both believe. The work that decides where AI earns its keep in your roadmap, and where it is theatre.</p>
           <p class="service-meta">
             <strong>Deliverable —</strong> an AI roadmap and a board-ready business case.
             <span class="service-fee">From €15k</span>
@@ -1215,7 +1216,7 @@
         <div class="service-num">02</div>
         <div class="service-body">
           <h2>FAIR data platforms</h2>
-          <p>Linked-data and knowledge-graph architecture for regulated biopharma environments. Schema, vocabulary, ingestion, and governance, designed FAIR by design rather than bolted on, so a model can actually query your data.</p>
+          <p>Linked-data and knowledge-graph architecture for regulated, data-intensive environments. Schema, vocabulary, ingestion, and governance, designed FAIR by design rather than bolted on, so a model can actually query your data.</p>
           <p class="service-meta">
             <strong>Deliverable —</strong> a platform blueprint and architecture diagram your team can execute.
             <span class="service-fee">Project-based, from €30k</span>
@@ -1698,7 +1699,7 @@
 <main class="page" id="page-contact">
   <section class="letter-intro">
     <div class="container">
-      <p class="letter-meta">RadTech · Contact · Life sciences only</p>
+      <p class="letter-meta">RadTech · Contact</p>
       <h1 class="letter-h1">Let's see if RadTech is the <span class="serif-i">right call</span>.</h1>
       <p class="letter-lede">A 30-minute discovery call, free, no pitch. I ask the questions that decide whether you actually need an outside specialist. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
       <div style="margin: 28px 0 54px;">
@@ -1713,7 +1714,7 @@
             Based in Amsterdam, NL. Remote-first, worldwide.<br>
             Response within one business day.
           </div>
-          <p style="margin-top:22px; font-size:14px; color:var(--rt-ink-faint); max-width:420px;">RadTech works exclusively with pharma, biotech, and life-science teams. If that is not you, a call is probably not the best use of either of our time.</p>
+          <p style="margin-top:22px; font-size:14px; color:var(--rt-ink-faint); max-width:420px;">RadTech works with teams doing serious technical work, across life sciences, deep tech, and data-intensive industries. If we are not the right fit, I will say so on the call.</p>
         </div>
         <div>
           <div class="mono" style="color: var(--rt-warm); margin-bottom: 14px;">// OR SEND A NOTE</div>
@@ -1959,7 +1960,7 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       w = rect.width; h = rect.height;
       stars = [];
-      const n = Math.max(40, Math.round(w * h / 9000));
+      const n = Math.max(30, Math.round(w * h / 17000));
       for (let i = 0; i < n; i++) stars.push({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*1.3+0.2, p: Math.random()*Math.PI*2 });
     }
     new ResizeObserver(resize).observe(canvas);
@@ -1983,7 +1984,7 @@
         const rx = o.rx*base*1.7, ry = o.ry*base*1.7, cf = colFn(o.col);
         ctx.save(); ctx.translate(cx, cy); ctx.rotate(o.rot);
         ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI*2);
-        ctx.strokeStyle = cf(0.16); ctx.lineWidth = 1; ctx.stroke();
+        ctx.strokeStyle = cf(0.22); ctx.lineWidth = 1; ctx.stroke();
         const ang = t*o.sp + idx;
         const px = Math.cos(ang)*rx, py = Math.sin(ang)*ry;
         const pg = ctx.createRadialGradient(px, py, 0, px, py, 16);
