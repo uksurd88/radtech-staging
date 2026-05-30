@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RadTech — AI & data strategy for drug discovery</title>
+<title>RadTech — AI & data strategy consultancy</title>
+<meta name="description" content="RadTech turns frontier AI and data into systems that ship. AI strategy, FAIR data platforms, and embedded technical advisory, from someone who has run the programs. Founder: Sukhi Singh." />
+<meta property="og:title" content="RadTech — AI & data strategy consultancy" />
+<meta property="og:description" content="Frontier AI and data, turned into systems that ship. Strategy through delivery." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://radtech.nl" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,7 +20,7 @@
     --rt-surface: #FFFFFF;
     --rt-ink: #1A2336;
     --rt-ink-dim: rgba(26, 35, 54, 0.72);
-    --rt-ink-faint: rgba(26, 35, 54, 0.45);
+    --rt-ink-faint: rgba(26, 35, 54, 0.6);
     --rt-line: rgba(26, 35, 54, 0.14);
     --rt-line-strong: rgba(26, 35, 54, 0.28);
     --rt-accent: #178F84;
@@ -31,7 +37,7 @@
     --rt-surface: #14213d;
     --rt-ink: #e6ecf5;
     --rt-ink-dim: rgba(230, 236, 245, 0.78);
-    --rt-ink-faint: rgba(230, 236, 245, 0.42);
+    --rt-ink-faint: rgba(230, 236, 245, 0.62);
     --rt-line: rgba(230, 236, 245, 0.12);
     --rt-line-strong: rgba(230, 236, 245, 0.22);
     --rt-accent: #6FE3D8;
@@ -136,37 +142,59 @@
   .founder-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
   .founder-tags .tag { font-size: 12px; }
 
-  /* ===== galaxy hero (full-screen, dark, big type, orbital animation) ===== */
+  /* ===== hero (one-screen, theme-aware, orbital animation) ===== */
   #page-home .home-hero {
-    position: relative; min-height: calc(100vh - 66px);
-    display: flex; align-items: flex-start; padding: clamp(44px, 8vh, 120px) 0 44px; overflow: hidden;
-    background: linear-gradient(180deg, #0b1426 0%, #080e1c 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-start;
+    min-height: calc(100vh - 66px);
+    padding: clamp(20px, 3.5vh, 60px) 0;
+    background: var(--rt-bg);
   }
-  /* hero dot-grid + orbitals + ACGT track are drawn on this canvas (original RadTech WaffleHero) */
+  .dark #page-home .home-hero { background: linear-gradient(180deg, #0b1426 0%, #080e1c 100%); }
   #galaxyCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
   #page-home .home-hero .container-narrow { position: relative; z-index: 2; width: 100%; }
   #page-home .hero-kicker {
     font-family: var(--font-mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
-    color: rgba(111,227,216,.85); margin: 0 0 26px;
+    color: var(--rt-accent); margin: 0 0 16px;
   }
-  #page-home .hero-kicker .dot { color: rgba(232,177,104,.9); padding: 0 4px; }
+  #page-home .hero-kicker .dot { color: var(--rt-warm); padding: 0 4px; }
   #page-home .galaxy-h1 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(34px, min(5.6vw, 7.4vh), 88px); line-height: 1.0; letter-spacing: -0.03em;
-    margin: 0 0 20px; color: #f3f6fc; max-width: 18ch;
+    font-size: clamp(30px, min(5vw, 6vh), 78px); line-height: 1.03; letter-spacing: -0.03em;
+    margin: 0 0 16px; color: var(--rt-ink); max-width: 22ch;
   }
+  #page-home .galaxy-h1 .hl { display: block; }
+  #page-home .galaxy-h1 .hl-mid { white-space: nowrap; }
   #page-home .galaxy-h1 .rot {
-    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #E8B168;
-    display: inline-block; transition: opacity .35s ease, transform .35s ease; will-change: opacity, transform;
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--rt-warm);
+    display: inline-block; transition: opacity .3s ease, transform .3s ease; will-change: opacity, transform;
   }
-  #page-home .galaxy-h1 .rot.swap { opacity: 0; transform: translateY(10px); }
-  #page-home .home-hero { padding: 28px 0; }
-  #page-home .home-hero .home-lede { color: rgba(230,236,245,.86); font-family: var(--font-body); font-style: normal; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; margin-bottom: 18px; max-width: 620px; }
-  #page-home .home-hero .home-context { color: rgba(230,236,245,.6); margin-bottom: 26px; }
-  #page-home .home-hero .cta-primary { background: #6FE3D8; color: #07131f; }
-  #page-home .home-hero .cta-primary:hover { opacity: .9; }
-  #page-home .home-hero .home-second { color: #6FE3D8; border-bottom-color: rgba(111,227,216,.4); }
+  #page-home .galaxy-h1 .rot.swap { opacity: 0; transform: translateY(8px); }
+  #page-home .home-hero .home-lede { color: var(--rt-ink-dim); font-family: var(--font-body); font-style: normal; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.55; margin: 0 0 12px; max-width: 580px; }
+  #page-home .home-hero .home-context { color: var(--rt-ink-dim); margin: 0 0 22px; font-size: 14px; }
+  #page-home .home-hero .home-second { color: var(--rt-accent); border-bottom-color: color-mix(in srgb, var(--rt-accent) 40%, transparent); }
   @media (prefers-reduced-motion: reduce) { #page-home .galaxy-h1 .rot { transition: none; } }
+
+  /* hero proof / stat band (fills the lower screen, adds credibility above the fold) */
+  #page-home .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 14px 30px; margin: 30px 0 0;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--rt-ink-dim);
+  }
+  #page-home .hero-stats div { display: flex; flex-direction: column; gap: 3px; }
+  #page-home .hero-stats b { font-family: var(--font-display); font-weight: 600; font-size: 22px; letter-spacing: -.01em; color: var(--rt-ink); }
+  #page-home .hero-stats span { color: var(--rt-ink-faint); text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px; }
+
+  /* keyboard focus visibility (was missing) */
+  a:focus-visible, button:focus-visible, [data-go]:focus-visible, [data-page]:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--rt-accent); outline-offset: 3px; border-radius: 3px;
+  }
+
+  /* Home page = exactly one screen: footer pulled up, no scroll, hero fills the middle */
+  body.home-active { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+  body.home-active #page-home { flex: 1 1 auto; min-height: 0; display: flex; }
+  body.home-active #page-home .home-hero { flex: 1 1 auto; min-height: 0; height: auto; }
+  body.home-active footer.site-footer { flex: 0 0 auto; padding-top: 18px; padding-bottom: 18px; }
+  body.home-active .footer-explore { display: none; }
 
   /* Header */
   header.site-header {
@@ -926,7 +954,7 @@
   /* Hallmark · macrostructure: Letter · genre: editorial
    * Scope: #page-home. Same system as #page-services; varies on
    * archetype (services as 3 numbered rows, posts as numbered list). */
-  #page-home .home-hero { padding: clamp(40px, 7vh, 96px) 0 40px; }
+  #page-home .home-hero { padding: clamp(20px, 3.5vh, 60px) 0; }
   #page-home .home-meta {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -1059,7 +1087,7 @@
   }
 
   @media (max-width: 700px) {
-    #page-home .home-hero { padding: 56px 0 30px; }
+    #page-home .home-hero { padding: 40px 0; }
     #page-home .service-row { grid-template-columns: 56px 1fr; gap: 18px; padding: 22px 0; }
     #page-home .service-num { font-size: 32px; }
     #page-home .home-post-list li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
@@ -1100,13 +1128,15 @@
 <canvas class="dna-decoration" id="dnaDeco" width="60" height="800"></canvas>
 
 <!-- ============ HOME ============ -->
-<main class="page" id="page-home">
+<main class="page active" id="page-home">
   <section class="home-hero">
     <canvas id="galaxyCanvas"></canvas>
     <div class="container-narrow">
       <p class="hero-kicker">RadTech <span class="dot">·</span> AI &amp; data <span class="dot">·</span> deep tech</p>
       <h1 class="galaxy-h1">
-        Radical technology that moves <span class="rot" id="rotWord">drug&nbsp;discovery</span> forward.
+        <span class="hl">Radical technology</span>
+        <span class="hl hl-mid">that moves <span class="rot" id="rotWord">drug&nbsp;discovery</span></span>
+        <span class="hl">forward.</span>
       </h1>
       <p class="home-lede">
         RadTech turns frontier AI and data into systems that ship, for the teams doing the hard, technical work. Strategy through delivery, from someone who has run the programs, not just advised on them.
@@ -1123,7 +1153,7 @@
 </main>
 
 <!-- ============ CONSULTING ============ -->
-<main class="page active" id="page-services">
+<main class="page" id="page-services">
   <section class="letter-intro">
     <div class="container-narrow">
       <p class="letter-meta">RadTech · Services &amp; pricing</p>
@@ -1359,11 +1389,6 @@
           <p>Seven HTML dashboards from Jira + Clockwork Pro + HoorayHR: Executive, Analytics, Timeline, Cross-Project, Budget, Resources. Used for client reporting and capacity planning.</p>
           <div class="mono"><a href="#" style="color: var(--rt-accent);">View source →</a></div>
         </div>
-      </div>
-
-      <div style="margin-top: 60px; padding: 26px; border: 1px dashed var(--rt-line-strong); border-radius: 12px; background: var(--rt-bg-elev);">
-        <div class="mono" style="color: var(--rt-warm); margin-bottom: 6px;">// EDITORIAL NOTE</div>
-        <p style="margin: 0; color: var(--rt-ink-dim); font-size: 15px;">Repo links are placeholders for the mockup. In v2 these point at public GitHub repos under <code>uksurd88</code> + selected ENPICOM-owned open contributions.</p>
       </div>
     </div>
   </section>
@@ -1615,13 +1640,6 @@
           </div>
         </div>
         <div class="speaking-row">
-          <div class="date">2025-Q4</div>
-          <div>
-            <div class="title">Antibody discovery × LLMs: what actually shipped this year</div>
-            <div class="venue">Internal workshop, ENPICOM partner event · placeholder, fill in real venue</div>
-          </div>
-        </div>
-        <div class="speaking-row">
           <div class="date">2024 → 2025</div>
           <div>
             <div class="title">Multiple invited talks: FAIR, AI in drug discovery, knowledge graphs</div>
@@ -1686,8 +1704,8 @@
       <a data-go="uses">Uses</a>
     </div>
     <div class="footer-strip">
-      <div>RadTech · Sukhi Singh, founder · Amsterdam, NL · AI &amp; data strategy for life sciences</div>
-      <div class="reads-chip"><span class="dot"></span><span>contact@radtech.nl</span></div>
+      <div>RadTech · Sukhi Singh, founder · Amsterdam, NL · AI &amp; data strategy</div>
+      <a class="reads-chip" href="mailto:contact@radtech.nl"><span class="dot"></span><span>contact@radtech.nl</span></a>
     </div>
   </div>
 </footer>
@@ -1699,6 +1717,8 @@
     document.querySelectorAll('#mainNav a').forEach(a => a.classList.toggle('active', a.dataset.page === name));
     window.scrollTo({ top: 0, behavior: 'instant' });
     document.getElementById('dnaDeco').classList.toggle('show', name === 'about');
+    // Home is a single, non-scrolling screen with the footer pulled up; other pages scroll normally.
+    document.body.classList.toggle('home-active', name === 'home');
   }
   document.querySelectorAll('#mainNav a').forEach(a => {
     a.addEventListener('click', () => showPage(a.dataset.page));
@@ -1711,8 +1731,9 @@
   // Theme toggle
   const themeBtn = document.getElementById('themeToggle');
   themeBtn.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    themeBtn.textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
+    const dark = document.documentElement.classList.toggle('dark');
+    themeBtn.textContent = dark ? 'Light' : 'Dark';
+    try { localStorage.setItem('rt-theme', dark ? 'dark' : 'light'); } catch (e) {}
   });
 
   // ACGT strip on hero
@@ -1886,6 +1907,7 @@
     const ctx = canvas.getContext('2d');
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const intensity = 70;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let t = 0, mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
     const hexA = (hex, a) => { const h = hex.replace('#',''); const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16); return `rgba(${r},${g},${b},${Math.max(0,Math.min(1,a))})`; };
     function resize() { const r = canvas.getBoundingClientRect(); canvas.width = r.width*dpr; canvas.height = r.height*dpr; }
@@ -1894,9 +1916,9 @@
     canvas.addEventListener('pointerleave', () => { tmx = 0.5; tmy = 0.5; });
     const isDark = () => document.documentElement.classList.contains('dark');
     function orbitals(w, h, accent, warm) {
-      const cx = w*0.72, cy = h*0.45; ctx.lineWidth = 1*dpr;
+      const cx = w*0.73, cy = h*0.52; ctx.lineWidth = 1*dpr;
       for (let o = 0; o < 3; o++) {
-        const r = Math.min(w,h)*(0.14 + o*0.1);
+        const r = Math.min(w,h)*(0.2 + o*0.13);
         ctx.strokeStyle = hexA(o%2 ? warm : accent, 0.38 - o*0.06);
         ctx.beginPath(); ctx.ellipse(cx, cy, r, r*0.42, t*(o+1)*0.25, 0, Math.PI*2); ctx.stroke();
         const a = t*(1 + o*0.5), ang = t*(o+1)*0.25;
@@ -1954,26 +1976,31 @@
         ctx.beginPath(); ctx.arc(x + wx, y + wy, size, 0, Math.PI*2); ctx.fill();
       }
       orbitals(w, h, accent, warm);
-      requestAnimationFrame(draw);
+      if (!reduce) requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
   })();
 
-  // Rotating domain word in the hero headline
+  // Rotating domain word in the hero headline (frozen under reduced-motion)
   (function() {
     const el = document.getElementById('rotWord');
     if (!el) return;
-    const words = ['drug discovery', 'research', 'operations', 'strategy', 'discovery', 'biotech'];
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = 'drug discovery'; return; }
+    const words = ['drug discovery', 'research', 'operations', 'strategy', 'biotech'];
     let i = 0;
     setInterval(() => {
       el.classList.add('swap');
-      setTimeout(() => { i = (i + 1) % words.length; el.textContent = words[i]; el.classList.remove('swap'); }, 360);
-    }, 2400);
+      setTimeout(() => { i = (i + 1) % words.length; el.textContent = words[i]; el.classList.remove('swap'); }, 320);
+    }, 3400);
   })();
 
-  // Land on Home, dark by default to match the galaxy hero.
-  document.documentElement.classList.add('dark');
-  document.getElementById('themeToggle').textContent = 'Light';
+  // Theme: restore saved choice, default to dark.
+  (function() {
+    let dark = true;
+    try { const s = localStorage.getItem('rt-theme'); if (s) dark = s === 'dark'; } catch (e) {}
+    document.documentElement.classList.toggle('dark', dark);
+    document.getElementById('themeToggle').textContent = dark ? 'Light' : 'Dark';
+  })();
   showPage('home');
 </script>
 
