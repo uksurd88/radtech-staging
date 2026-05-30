@@ -136,6 +136,45 @@
   .founder-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
   .founder-tags .tag { font-size: 12px; }
 
+  /* ===== galaxy hero (full-screen, dark, big type, orbital animation) ===== */
+  #page-home .home-hero {
+    position: relative; min-height: calc(100vh - 66px);
+    display: flex; align-items: center; padding: 40px 0; overflow: hidden;
+    background: radial-gradient(125% 95% at 72% 38%, #14233f 0%, #0a1326 52%, #060b16 100%);
+  }
+  #galaxyCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  #page-home .home-hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(140,170,220,.16) 1px, transparent 1.5px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 55% 55%, #000 22%, transparent 85%);
+            mask-image: radial-gradient(ellipse 85% 75% at 55% 55%, #000 22%, transparent 85%);
+    opacity: .55;
+  }
+  #page-home .home-hero .container-narrow { position: relative; z-index: 2; width: 100%; }
+  #page-home .galaxy-chips { display: flex; gap: 10px; margin: 0 0 28px; flex-wrap: wrap; }
+  #page-home .galaxy-chips span {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: #6FE3D8; border: 1px solid rgba(111,227,216,.4); border-radius: 6px; padding: 5px 11px;
+  }
+  #page-home .galaxy-chips span.warm { color: #E8B168; border-color: rgba(232,177,104,.4); }
+  #page-home .galaxy-h1 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(46px, 7.8vw, 120px); line-height: .98; letter-spacing: -0.03em;
+    margin: 0 0 30px; color: #f3f6fc; max-width: 17ch;
+  }
+  #page-home .galaxy-h1 .rot {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #E8B168;
+    display: inline-block; transition: opacity .35s ease, transform .35s ease; will-change: opacity, transform;
+  }
+  #page-home .galaxy-h1 .rot.swap { opacity: 0; transform: translateY(10px); }
+  #page-home .home-hero .home-lede { color: rgba(230,236,245,.84); }
+  #page-home .home-hero .home-context { color: rgba(230,236,245,.6); }
+  #page-home .home-hero .cta-primary { background: #6FE3D8; color: #07131f; }
+  #page-home .home-hero .cta-primary:hover { opacity: .9; }
+  #page-home .home-hero .home-second { color: #6FE3D8; border-bottom-color: rgba(111,227,216,.4); }
+  @media (prefers-reduced-motion: reduce) { #page-home .galaxy-h1 .rot { transition: none; } }
+
   /* Header */
   header.site-header {
     position: sticky;
@@ -1070,14 +1109,14 @@
 <!-- ============ HOME ============ -->
 <main class="page" id="page-home">
   <section class="home-hero">
-    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <canvas id="galaxyCanvas"></canvas>
     <div class="container-narrow">
-      <p class="home-meta">RadTech · AI &amp; data strategy for life sciences</p>
-      <h1 class="home-h1">
-        AI and data systems that move <span class="serif-i">drug discovery</span> forward.
+      <div class="galaxy-chips"><span>RadTech</span><span class="warm">AI · Data · Deep&nbsp;tech</span></div>
+      <h1 class="galaxy-h1">
+        Radical technology that moves <span class="rot" id="rotWord">drug&nbsp;discovery</span> forward.
       </h1>
       <p class="home-lede">
-        RadTech helps pharma and biotech teams turn expensive data bottlenecks into models and platforms that actually ship. Strategy through delivery, from someone who has run the programs, not just advised on them.
+        RadTech turns frontier AI and data into systems that ship, for the teams doing the hard, technical work. Strategy through delivery, from someone who has run the programs, not just advised on them.
       </p>
       <p class="home-context">
         Trusted by teams at ENPICOM, Novartis Data42, Genialis, and The Hyve.
@@ -1901,7 +1940,79 @@
     draw();
   })();
 
-  // Land on Home — the consulting funnel is one click away.
+  // Hero galaxy / orbital field
+  (function() {
+    const canvas = document.getElementById('galaxyCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w = 0, h = 0, t = 0, stars = [];
+    const orbits = [
+      { rx: 0.34, ry: 0.13, rot: -0.5, sp: 0.45,  col: 'teal' },
+      { rx: 0.26, ry: 0.20, rot: 0.7,  sp: -0.62, col: 'warm' },
+      { rx: 0.42, ry: 0.16, rot: 0.25, sp: 0.32,  col: 'teal' },
+      { rx: 0.18, ry: 0.30, rot: 1.2,  sp: 0.80,  col: 'ink'  }
+    ];
+    function resize() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      w = rect.width; h = rect.height;
+      stars = [];
+      const n = Math.max(40, Math.round(w * h / 9000));
+      for (let i = 0; i < n; i++) stars.push({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*1.3+0.2, p: Math.random()*Math.PI*2 });
+    }
+    new ResizeObserver(resize).observe(canvas);
+    resize();
+    const teal = a => `rgba(111,227,216,${a})`;
+    const warm = a => `rgba(232,177,104,${a})`;
+    const ink  = a => `rgba(180,200,235,${a})`;
+    const colFn = c => c === 'teal' ? teal : c === 'warm' ? warm : ink;
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      const cx = w * 0.68, cy = h * 0.5, base = Math.min(w, h);
+      for (const s of stars) {
+        const tw = 0.4 + 0.6 * (Math.sin(t*2 + s.p)*0.5 + 0.5);
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(200,215,240,${0.04 + 0.12*tw})`; ctx.fill();
+      }
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, base*0.55);
+      g.addColorStop(0, 'rgba(40,95,125,0.20)'); g.addColorStop(1, 'rgba(40,95,125,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, base*0.55, 0, Math.PI*2); ctx.fill();
+      orbits.forEach((o, idx) => {
+        const rx = o.rx*base*1.7, ry = o.ry*base*1.7, cf = colFn(o.col);
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(o.rot);
+        ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI*2);
+        ctx.strokeStyle = cf(0.16); ctx.lineWidth = 1; ctx.stroke();
+        const ang = t*o.sp + idx;
+        const px = Math.cos(ang)*rx, py = Math.sin(ang)*ry;
+        const pg = ctx.createRadialGradient(px, py, 0, px, py, 16);
+        pg.addColorStop(0, cf(0.9)); pg.addColorStop(1, cf(0));
+        ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(px, py, 16, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = cf(1); ctx.beginPath(); ctx.arc(px, py, 2.4, 0, Math.PI*2); ctx.fill();
+        ctx.restore();
+      });
+      t += 0.006;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // Rotating domain word in the hero headline
+  (function() {
+    const el = document.getElementById('rotWord');
+    if (!el) return;
+    const words = ['drug discovery', 'research', 'operations', 'strategy', 'discovery', 'biotech'];
+    let i = 0;
+    setInterval(() => {
+      el.classList.add('swap');
+      setTimeout(() => { i = (i + 1) % words.length; el.textContent = words[i]; el.classList.remove('swap'); }, 360);
+    }, 2400);
+  })();
+
+  // Land on Home, dark by default to match the galaxy hero.
+  document.documentElement.classList.add('dark');
+  document.getElementById('themeToggle').textContent = 'Light';
   showPage('home');
 </script>
 
