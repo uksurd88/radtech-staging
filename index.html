@@ -152,8 +152,8 @@
   #page-home .hero-kicker .dot { color: rgba(232,177,104,.9); padding: 0 4px; }
   #page-home .galaxy-h1 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(32px, 4.3vw, 62px); line-height: 1.05; letter-spacing: -0.02em;
-    margin: 0 0 22px; color: #f3f6fc; max-width: 16ch;
+    font-size: clamp(40px, 6vw, 84px); line-height: 1.0; letter-spacing: -0.03em;
+    margin: 0 0 24px; color: #f3f6fc; max-width: 24ch;
   }
   #page-home .galaxy-h1 .rot {
     font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #E8B168;
@@ -161,7 +161,7 @@
   }
   #page-home .galaxy-h1 .rot.swap { opacity: 0; transform: translateY(10px); }
   #page-home .home-hero { padding: 28px 0; }
-  #page-home .home-hero .home-lede { color: rgba(230,236,245,.84); font-size: clamp(18px, 1.9vw, 23px); margin-bottom: 16px; }
+  #page-home .home-hero .home-lede { color: rgba(230,236,245,.86); font-family: var(--font-body); font-style: normal; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; margin-bottom: 18px; max-width: 620px; }
   #page-home .home-hero .home-context { color: rgba(230,236,245,.6); margin-bottom: 26px; }
   #page-home .home-hero .cta-primary { background: #6FE3D8; color: #07131f; }
   #page-home .home-hero .cta-primary:hover { opacity: .9; }
@@ -582,10 +582,10 @@
     margin: 16px 0 18px;
   }
   .about-hero .lede {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 24px;
-    line-height: 1.4;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.6;
     color: var(--rt-ink-dim);
     max-width: 680px;
     margin: 0;
@@ -772,10 +772,10 @@
   }
   #page-services .letter-h1 .serif-i { color: var(--rt-warm); }
   #page-services .letter-lede {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: clamp(20px, 2.1vw, 26px);
-    line-height: 1.45;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: clamp(18px, 1.7vw, 21px);
+    line-height: 1.6;
     color: var(--rt-ink-dim);
     max-width: 680px;
     margin: 0;
@@ -1085,7 +1085,7 @@
     <nav class="main-nav" id="mainNav">
       <a data-page="home">Home</a>
       <a data-page="services">Services</a>
-      <a data-page="work">Work</a>
+      <a data-page="portfolio">Portfolio</a>
       <a data-page="insights">Insights</a>
       <a data-page="about">About</a>
       <a data-page="contact">Contact</a>
@@ -1115,63 +1115,9 @@
         Trusted by teams at ENPICOM, Novartis Data42, Genialis, and The Hyve.
       </p>
       <div class="home-actions">
-        <a class="cta-primary" data-go="contact">Hire RadTech →</a>
+        <a class="cta-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Hire RadTech →</a>
         <a class="home-second" data-go="services">See services &amp; pricing →</a>
       </div>
-    </div>
-  </section>
-
-  <section class="home-services">
-    <div class="container-narrow">
-      <h2 class="home-section-h">What RadTech <span class="serif-i">does</span></h2>
-      <div class="service-row">
-        <div class="service-num">01</div>
-        <div class="service-body">
-          <h2>AI strategy &amp; business cases <span class="price-chip">From €15k</span></h2>
-          <p>From hypothesis to funded program: opportunity sizing, build-versus-buy, and an AI roadmap your scientists and your board both believe.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <div class="service-num">02</div>
-        <div class="service-body">
-          <h2>FAIR data platforms <span class="price-chip">Project-based</span></h2>
-          <p>Linked-data and knowledge-graph architecture for regulated biopharma environments. Schema, vocabulary, ingestion, and governance, FAIR by design.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <div class="service-num">03</div>
-        <div class="service-body">
-          <h2>Discovery &amp; advisory <span class="price-chip">Monthly retainer</span></h2>
-          <p>Embedded technical advisory for discovery, data, and product teams. The translator between scientific intent and shipped systems.</p>
-        </div>
-      </div>
-      <p class="home-services-more">
-        <a class="home-second" data-go="services">All three engagements, in full →</a>
-      </p>
-    </div>
-  </section>
-
-  <section class="home-posts insights-strip">
-    <div class="container-narrow">
-      <h2 class="home-section-h">Insights <span class="serif-i">/ proof of work</span></h2>
-      <p style="font-size:14px;color:var(--rt-ink-dim);margin:0 0 18px;max-width:600px;">Field notes from inside drug-discovery AI. Evidence of how RadTech thinks, not the main attraction.</p>
-      <ol class="home-post-list">
-        <li>
-          <span class="home-post-date">20 May 2026</span>
-          <span class="home-post-title">PEGS Boston 2026: Design Is the Easy Part Now</span>
-        </li>
-        <li>
-          <span class="home-post-date">26 Apr 2026</span>
-          <span class="home-post-title">Nanobodies From a Laptop, BCRs From a Model, and a Mutation-Agnostic Bet</span>
-        </li>
-        <li>
-          <span class="home-post-date">21 Apr 2026</span>
-          <span class="home-post-title">Data Governance in Pharma: Notes from the Pistoia Alliance Benelux Forum #5</span>
-        </li>
-      </ol>
-      <p class="home-services-more">
-        <a class="home-second" data-go="insights">All insights →</a>
-      </p>
     </div>
   </section>
 </main>
@@ -1268,11 +1214,11 @@
 </main>
 
 <!-- ============ WORK ============ -->
-<main class="page" id="page-work">
+<main class="page" id="page-portfolio">
   <section style="padding: 100px 0 0;">
     <div class="container">
-      <div class="mono" style="color: var(--rt-accent); margin-bottom: 18px;">// WORK · CASE · STUDIES</div>
-      <h1 style="font-family: var(--font-display); font-weight: 500; font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 24px;">Selected <span class="serif-i warm">Work</span></h1>
+      <div class="mono" style="color: var(--rt-accent); margin-bottom: 18px;">// PORTFOLIO · PROJECTS · CASE STUDIES</div>
+      <h1 style="font-family: var(--font-display); font-weight: 500; font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 24px;">Portfolio &amp; <span class="serif-i warm">projects</span></h1>
       <p style="font-size: 18px; line-height: 1.55; color: var(--rt-ink-dim); max-width: 700px; margin: 0;">Fifteen years across antibody discovery, FAIR data, genome assembly, and AI strategy. A short list of the engagements that taught me the most.</p>
 
       <div class="section-head">
@@ -1695,7 +1641,7 @@
       <h1 class="letter-h1">Let's see if RadTech is the <span class="serif-i">right call</span>.</h1>
       <p class="letter-lede">A 30-minute discovery call, free, no pitch. I ask the questions that decide whether you actually need an outside specialist. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
       <div style="margin: 28px 0 54px;">
-        <a class="cta-primary" href="https://cal.com/radtech/discovery" target="_blank" rel="noopener">Book a discovery call →</a>
+        <a class="cta-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a discovery call →</a>
       </div>
       <div class="contact-grid">
         <div>
@@ -1733,7 +1679,7 @@
       <span style="color: var(--rt-accent);">// EXPLORE</span>
       <a data-go="home">Home</a>
       <a data-go="services">Services</a>
-      <a data-go="work">Work</a>
+      <a data-go="portfolio">Portfolio</a>
       <a data-go="insights">Insights</a>
       <a data-go="about">About</a>
       <a data-go="contact">Contact</a>
@@ -1963,17 +1909,27 @@
       ctx.fillStyle = hexA(warm, 0.2); ctx.beginPath(); ctx.arc(cx, cy, 14*dpr, 0, Math.PI*2); ctx.fill();
     }
     function acgt(w, h, accent, warm) {
-      const bases = ['A','C','G','T']; ctx.font = `${11*dpr}px ui-monospace, monospace`; ctx.textAlign = 'center'; const spacing = 28*dpr;
-      for (let row = 0; row < 2; row++) {
-        const y = h*(0.82 + row*0.1); const scrollPos = t*spacing*(row === 0 ? 0.5 : -0.38);
-        ctx.strokeStyle = hexA(accent, 0.18); ctx.lineWidth = 1*dpr; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-        const first = Math.floor(scrollPos/spacing)-1, last = Math.ceil((scrollPos+w)/spacing)+1;
-        for (let col = first; col <= last; col++) {
-          const x = col*spacing - scrollPos; if (x < -spacing || x > w + spacing) continue;
-          const base = bases[((col%4)+4)%4]; const up = col%2 === 0; const c = (base === 'A' || base === 'T') ? accent : warm;
-          ctx.fillStyle = hexA(c, 0.72); ctx.fillText(base, x, y + (up ? -9 : 18)*dpr);
-          ctx.strokeStyle = hexA(c, 0.38); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + (up ? -4 : 4)*dpr); ctx.stroke();
-        }
+      // Correct double strand: top base paired with its Watson-Crick complement below (A-T, G-C)
+      const comp = { A: 'T', T: 'A', C: 'G', G: 'C' };
+      const seq = ['A','T','G','C','A','C','T','G','C','A','G','T','A','C','G','T'];
+      ctx.font = `${11*dpr}px ui-monospace, monospace`; ctx.textAlign = 'center';
+      const spacing = 28*dpr;
+      const yTop = h*0.88, yBot = h*0.95;
+      const scrollPos = t*spacing*0.5;
+      ctx.strokeStyle = hexA(accent, 0.14); ctx.lineWidth = 1*dpr;
+      ctx.beginPath(); ctx.moveTo(0, yTop); ctx.lineTo(w, yTop); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, yBot); ctx.lineTo(w, yBot); ctx.stroke();
+      const first = Math.floor(scrollPos/spacing)-1, last = Math.ceil((scrollPos+w)/spacing)+1;
+      for (let col = first; col <= last; col++) {
+        const x = col*spacing - scrollPos; if (x < -spacing || x > w + spacing) continue;
+        const top = seq[((col % seq.length) + seq.length) % seq.length];
+        const bot = comp[top];
+        const c = (top === 'A' || top === 'T') ? accent : warm;
+        ctx.strokeStyle = hexA(c, 0.20); ctx.lineWidth = 1*dpr;
+        ctx.beginPath(); ctx.moveTo(x, yTop + 3*dpr); ctx.lineTo(x, yBot - 3*dpr); ctx.stroke();
+        ctx.fillStyle = hexA(c, 0.72);
+        ctx.fillText(top, x, yTop - 3*dpr);
+        ctx.fillText(bot, x, yBot + 12*dpr);
       }
     }
     function draw() {
