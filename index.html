@@ -152,7 +152,7 @@
   }
   .dark #page-home .home-hero { background: linear-gradient(180deg, #0b1426 0%, #080e1c 100%); }
   #galaxyCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
-  #page-home .home-hero .container-narrow { position: relative; z-index: 2; width: 100%; }
+  #page-home .home-hero .container-narrow { position: relative; z-index: 2; width: 100%; max-width: 1140px; }
   #page-home .hero-kicker {
     font-family: var(--font-mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
     color: var(--rt-accent); margin: 0 0 16px;
@@ -160,11 +160,11 @@
   #page-home .hero-kicker .dot { color: var(--rt-warm); padding: 0 4px; }
   #page-home .galaxy-h1 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(30px, min(5vw, 6vh), 78px); line-height: 1.03; letter-spacing: -0.03em;
-    margin: 0 0 16px; color: var(--rt-ink); max-width: 22ch;
+    font-size: clamp(48px, 7vw, 88px); line-height: 0.95; letter-spacing: -0.03em;
+    margin: 0 0 26px; color: var(--rt-ink); max-width: 17ch; min-height: 3.8em;
   }
-  #page-home .galaxy-h1 .hl { display: block; }
-  #page-home .galaxy-h1 .hl-mid { white-space: nowrap; }
+  #page-home .galaxy-h1 .hl { display: inline; }
+  #page-home .galaxy-h1 .hl-mid { white-space: normal; }
   #page-home .galaxy-h1 .rot {
     font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--rt-warm);
     display: inline-block; transition: opacity .3s ease, transform .3s ease; will-change: opacity, transform;
@@ -1914,9 +1914,9 @@
     canvas.addEventListener('pointerleave', () => { tmx = 0.5; tmy = 0.5; });
     const isDark = () => document.documentElement.classList.contains('dark');
     function orbitals(w, h, accent, warm) {
-      const cx = w*0.72, cy = h*0.5; ctx.lineWidth = 1.2*dpr;
+      const cx = w*0.72, cy = h*0.45; ctx.lineWidth = 1*dpr;
       for (let o = 0; o < 3; o++) {
-        const r = Math.min(w,h)*(0.32 + o*0.18);
+        const r = Math.min(w,h)*(0.14 + o*0.1);
         ctx.strokeStyle = hexA(o%2 ? warm : accent, 0.38 - o*0.06);
         ctx.beginPath(); ctx.ellipse(cx, cy, r, r*0.42, t*(o+1)*0.25, 0, Math.PI*2); ctx.stroke();
         const a = t*(1 + o*0.5), ang = t*(o+1)*0.25;
