@@ -3,17 +3,24 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- RadTech site, VERSION 2 (sharp warm-editorial, dark-first; knowledge-graph hero motif).
-     Built from the Claude Design handoff bundle "radtech-webdesign". v1 preserved at radtech-staging-v1-backup.html. -->
-<title>RadTech: AI and data systems, from strategy to shipped product</title>
-<meta name="description" content="RadTech turns frontier AI and data into systems that ship. I run technical programs for teams doing hard science, and I build my own AI products end to end. Founder: Sukhi Singh." />
-<meta property="og:title" content="RadTech: AI and data systems, from strategy to shipped product" />
-<meta property="og:description" content="Frontier AI and data, turned into systems that ship. Strategy through delivery." />
+<!-- RadTech site, VERSION 3 (same sharp warm-editorial design system as v2; new pages and content, hash routing). -->
+<title>RadTech: apps, web products, applied AI and founder advisory</title>
+<meta name="description" content="RadTech builds mobile apps, web products and applied AI for growing companies, and advises the founders who run them. Netherlands, remote across Europe." />
+<link rel="canonical" href="https://radtech.nl/" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1322'/%3E%3Crect x='5' y='5' width='6' height='6' rx='1.2' fill='%235FDDCF'/%3E%3Crect x='13' y='5' width='6' height='6' rx='1.2' fill='%23ECE7DA' opacity='.45'/%3E%3Crect x='21' y='5' width='6' height='6' rx='1.2' fill='%23E6A85C'/%3E%3Crect x='5' y='13' width='6' height='6' rx='1.2' fill='%23ECE7DA' opacity='.45'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1.2' fill='%235FDDCF'/%3E%3Crect x='21' y='13' width='6' height='6' rx='1.2' fill='%23ECE7DA' opacity='.45'/%3E%3Crect x='5' y='21' width='6' height='6' rx='1.2' fill='%23E6A85C'/%3E%3Crect x='13' y='21' width='6' height='6' rx='1.2' fill='%23ECE7DA' opacity='.45'/%3E%3Crect x='21' y='21' width='6' height='6' rx='1.2' fill='%235FDDCF'/%3E%3C/svg%3E" />
+<meta property="og:title" content="RadTech: apps, web products, applied AI and founder advisory" />
+<meta property="og:description" content="We build the product. We advise the founder. Mobile apps, web products and applied AI for growing companies, plus a senior sounding board for the people running them." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://radtech.nl" />
+<meta property="og:url" content="https://radtech.nl/" />
+<meta property="og:site_name" content="RadTech" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0B1322" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"RadTech","url":"https://radtech.nl/","email":"contact@radtech.nl","areaServed":["Netherlands","Europe","Middle East","Asia"],"address":{"@type":"PostalAddress","addressCountry":"NL"},"description":"Apps, web products, applied AI and founder advisory.","knowsAbout":["Mobile app development","Web development","Applied AI","AI strategy","Founder advisory","FAIR data","Knowledge graphs"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    RadTech: sharp warm-editorial design system (dark-first)
@@ -27,7 +34,7 @@
   --surface-2: #182A47;
   --ink:       #ECE7DA;       /* warm paper-white */
   --ink-dim:   rgba(236,231,218,0.72);
-  --ink-faint: rgba(236,231,218,0.46);
+  --ink-faint: rgba(236,231,218,0.62);
   --line:      rgba(236,231,218,0.11);
   --line-2:    rgba(236,231,218,0.20);
   --teal:      #5FDDCF;
@@ -52,7 +59,7 @@
   --surface-2: #FFFFFF;
   --ink:       #15212E;
   --ink-dim:   rgba(21,33,46,0.74);
-  --ink-faint: rgba(21,33,46,0.52);
+  --ink-faint: rgba(21,33,46,0.66);
   --line:      rgba(21,33,46,0.13);
   --line-2:    rgba(21,33,46,0.26);
   --teal:      #137F75;
@@ -94,8 +101,7 @@ h1,h2,h3,h4 { margin: 0; font-weight: 500; }
 .eyebrow .tk { color: var(--teal); }
 
 /* keyboard focus */
-a:focus-visible, button:focus-visible, [data-go]:focus-visible,
-[data-nav]:focus-visible, input:focus-visible, textarea:focus-visible {
+a:focus-visible, button:focus-visible, [data-nav]:focus-visible {
   outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 3px;
 }
 
@@ -206,9 +212,6 @@ nav.main-nav a.active::after {
   margin: 0 0 26px; text-wrap: balance;
 }
 .hero h1 .serif-i { color: var(--amber); }
-.hero h1 .rot { color: var(--teal); display: inline-block; transition: opacity .4s ease, transform .4s ease; }
-.hero h1 .rot.swap { opacity: 0; transform: translateY(10px); }
-@media (prefers-reduced-motion: reduce) { .hero h1 .rot { transition: none; } }
 .hero-lede {
   font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--ink-dim);
   max-width: 620px; margin: 0 0 30px; text-wrap: pretty;
@@ -467,6 +470,21 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   .hero-inner { padding: 64px 0 60px; }
 }
 
+/* v3 additions: keyboard-reachable rows, touch targets, narrow header, inline tag in headings */
+a.work-row, a.case { color: inherit; text-decoration: none; }
+.case h3 a { color: inherit; }
+.case h3 a:hover { color: var(--teal); }
+.case .proj-links { margin-top: 18px; }
+.page-head .hero-ctas { margin-top: 26px; }
+.work-row:focus-visible, .case:focus-visible { outline-offset: 6px; }
+.svc-body h3 .tag { vertical-align: middle; margin-left: 10px; }
+.about-strip:not(:has(.portrait)) { grid-template-columns: 1fr; }
+.hero h1 .rot { display: inline-block; transition: opacity .4s ease, transform .4s ease; }
+.hero h1 .rot.swap { opacity: 0; transform: translateY(10px); }
+@media (prefers-reduced-motion: reduce) { .hero h1 .rot { transition: none; } }
+.about-strip:not(:has(.portrait)) .a-body p { max-width: 720px; }
+@media (pointer: coarse) { .theme-toggle, .nav-toggle { width: 44px; height: 44px; } }
+@media (max-width: 480px) { .header-actions .btn { display: none; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-kicker .dot { animation: none; }
@@ -478,20 +496,19 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="brand" data-nav="home">
+    <a class="brand" href="#home" data-nav="home" aria-label="RadTech home">
       <div class="brand-mark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <span>RadTech</span>
-    </div>
-    <nav class="main-nav" id="mainNav">
-      <a data-nav="home">Home</a>
-      <a data-nav="work">Portfolio</a>
-      <a data-nav="projects">Projects</a>
-      <a data-nav="services">Services</a>
-      <a data-nav="about">About</a>
-      <a data-nav="contact">Contact</a>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </nav>
     <div class="header-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme"></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" aria-pressed="false"></button>
       <a class="btn btn-primary btn-sm" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a call <span class="arw">→</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -500,7 +517,6 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   </div>
 </header>
 
-<!-- ====================== HOME ====================== -->
 <main class="page active" id="page-home">
 
   <!-- HERO -->
@@ -509,60 +525,20 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="hero-glow"></div>
     <div class="wrap">
       <div class="hero-inner">
-        <p class="hero-kicker eyebrow"><span class="dot"></span> RadTech <span class="tk">·</span> AI &amp; data <span class="tk">·</span> deep tech <span class="tk">·</span> products</p>
-        <h1>Radical technology<br>that moves<br><span class="rot" id="rotWord">drug&nbsp;discovery</span><br>forward.</h1>
-        <p class="hero-lede">RadTech turns frontier AI and data into systems that ship, for teams doing hard technical work. I also design and ship my own AI products end to end. Strategy through delivery, from someone who has run the programs and built the apps, not just advised on them.</p>
+        <p class="hero-kicker eyebrow"><span class="dot"></span> RadTech <span class="tk">·</span> apps <span class="tk">·</span> web <span class="tk">·</span> applied AI <span class="tk">·</span> founder advisory</p>
+        <h1>We build the <span class="serif-i rot" id="rotA">product</span>.<br>We advise the <span class="serif-i rot" id="rotB">founder</span>.</h1>
+        <p class="hero-lede">We turn frontier AI, data, and web products into systems that ship. From full-stack app development to senior founder advisory, we deliver hands-on execution backed by fifteen years of building.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a discovery call <span class="arw">→</span></a>
-          <a class="btn btn-ghost" data-scroll="home-work">See the work <span class="arw">→</span></a>
+          <a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a 15-minute call <span class="arw">→</span></a>
+          <a class="btn btn-ghost" href="#services" data-nav="services">See the services <span class="arw">→</span></a>
         </div>
         <div class="hero-proof">
-          <span class="lbl">Programs run with</span>
+          <span class="lbl">Track record</span>
           <div class="orgs">
-            <span>ENPICOM</span><span>Novartis Data42</span><span>Genialis</span><span>The Hyve</span>
+            <span>15+ years in data-driven R&amp;D</span>
+            <span>Multi-million-euro AI programs, top 5 pharma</span>
+            <span>Own products, built in house</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SELECTED WORK (priority) -->
-  <section class="band" id="home-work">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <div>
-          <h2>Selected <span class="serif-i">work</span></h2>
-          <p class="sub">Fifteen years across antibody discovery, FAIR data, and AI strategy. These are the engagements that moved real programs forward.</p>
-        </div>
-        <a class="txt-link" data-nav="work">All work &amp; code <span class="arw">→</span></a>
-      </div>
-
-      <div class="work-list">
-        <div class="work-row" data-nav="work" data-reveal>
-          <div>
-            <div class="wr-org">ENPICOM</div>
-            <div class="wr-role">Project Lead · 2025 → present</div>
-          </div>
-          <div class="wr-title"><b>Antibody discovery platform.</b> Leading cross-functional programs turning immune-repertoire NGS into therapeutic antibody candidates, FAIR-by-design, ISO 27001.</div>
-          <div class="wr-metric"><div class="num">&gt;€1M</div><div class="lbl">programs led</div></div>
-        </div>
-
-        <div class="work-row" data-nav="work" data-reveal>
-          <div>
-            <div class="wr-org">Novartis Data42</div>
-            <div class="wr-role">FAIR consultant · core team · 2019 → 2021</div>
-          </div>
-          <div class="wr-title"><b>Knowledge-graph governance.</b> Embedded from inception to delivery. The governance design decides whether a billion-dollar data platform is actually queryable.</div>
-          <div class="wr-metric"><div class="num">30+</div><div class="lbl">stakeholders</div></div>
-        </div>
-
-        <div class="work-row" data-nav="work" data-reveal>
-          <div>
-            <div class="wr-org">Genialis</div>
-            <div class="wr-role">Program Lead · 2023 → 2024</div>
-          </div>
-          <div class="wr-title"><b>AI biomarker discovery.</b> Cancer-biomarker programs combining AI, ML, and NGS across multi-site clinical and computational delivery. Award-winning PM.</div>
-          <div class="wr-metric"><div class="num">Award</div><div class="lbl">winning delivery</div></div>
         </div>
       </div>
     </div>
@@ -573,132 +549,116 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <h2>How I <span class="serif-i">help</span></h2>
-          <p class="sub">Three engagement shapes, honest scoping, no retainer dance.</p>
+          <h2>What we <span class="serif-i">do</span></h2>
+          <p class="sub">We build what you decide, and help you decide what to build.</p>
         </div>
-        <a class="txt-link" data-nav="services">Services &amp; process <span class="arw">→</span></a>
+        <a class="txt-link" href="#services" data-nav="services">All services <span class="arw">→</span></a>
       </div>
 
       <div class="svc-list">
         <div class="svc-row" data-reveal>
           <div class="svc-num">01</div>
           <div class="svc-body">
-            <h3>AI strategy &amp; business cases</h3>
-            <p>From hypothesis to funded program: opportunity sizing, build-versus-buy, and an AI roadmap your team and your board both believe. This is the work that decides where AI earns its keep and where it is theatre.</p>
+            <h3>Apps</h3>
+            <p>React Native on Supabase, first screen to store release.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Scoped per engagement</div>
-            <div class="deliv"><span class="k">Deliverable</span>AI roadmap + board-ready business case.</div>
+            <div class="fee">Fixed fee per phase</div>
           </div>
         </div>
 
         <div class="svc-row" data-reveal>
           <div class="svc-num">02</div>
           <div class="svc-body">
-            <h3>FAIR data platforms</h3>
-            <p>Linked-data and knowledge-graph architecture for regulated, data-intensive environments. Schema, vocabulary, ingestion, governance: FAIR by design rather than bolted on, so a model can actually query your data.</p>
+            <h3>Web</h3>
+            <p>Sites, portals and web apps your team can maintain.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Fixed fee, quoted after scoping</div>
-            <div class="deliv"><span class="k">Deliverable</span>Platform blueprint + architecture your team can execute.</div>
+            <div class="fee">Fixed fee, hourly after</div>
           </div>
         </div>
 
         <div class="svc-row" data-reveal>
           <div class="svc-num">03</div>
           <div class="svc-body">
-            <h3>Discovery &amp; advisory</h3>
-            <p>Embedded technical advisory for discovery, data, and product teams. Think of it as the translator between scientific intent and shipped systems, the senior technical voice your program has been missing.</p>
+            <h3>Applied AI</h3>
+            <p>Where AI pays in your field: business case, pilot, production.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Monthly retainer, ask for the rate</div>
-            <div class="deliv"><span class="k">Engagement</span>Retained, remote-first, monthly.</div>
+            <div class="fee">Fixed fee per stage</div>
+          </div>
+        </div>
+
+        <div class="svc-row" data-reveal>
+          <div class="svc-num">04</div>
+          <div class="svc-body">
+            <h3>Founder advisory</h3>
+            <p>One-to-one sessions on product, fundraising, hiring and hard calls.</p>
+          </div>
+          <div class="svc-aside">
+            <div class="fee">Monthly retainer</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SPEAKING -->
-  <section class="band" id="home-speaking">
+  <!-- SELECTED WORK -->
+  <section class="band" id="home-work">
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <h2>Talks &amp; <span class="serif-i">speaking</span></h2>
-          <p class="sub">FAIR, AI in drug discovery, and knowledge graphs, for pharma and biotech audiences.</p>
+          <h2>Selected <span class="serif-i">work</span></h2>
         </div>
-        <a class="txt-link" data-nav="about">Full bio &amp; talks <span class="arw">→</span></a>
+        <a class="txt-link" href="#work" data-nav="work">All work <span class="arw">→</span></a>
       </div>
-      <div class="speak-list">
-        <div class="speak-row" data-reveal>
-          <div class="date">2026-05-15</div>
+
+      <div class="work-list">
+        <a class="work-row" href="#pourtrait" data-nav="pourtrait" data-reveal style="text-decoration:none;color:inherit">
           <div>
-            <div class="st">Booth + panel · PEGS Boston 2026</div>
-            <div class="sv">PEGS Summit, Boston · immune-repertoire NGS conversations.</div>
+            <div class="wr-org">Pourtrait</div>
+            <div class="wr-role">Apps</div>
           </div>
-          <div class="role-pill">Booth lead</div>
-        </div>
-        <div class="speak-row" data-reveal>
-          <div class="date">2026-04-23</div>
+          <div class="wr-title"><b>Coffee discovery app.</b> Rates the barista, not the venue.</div>
+          <div class="wr-metric"><div class="num">Live</div><div class="lbl">iOS + Android</div></div>
+        </a>
+
+        <a class="work-row" href="#work" data-nav="work" data-reveal style="text-decoration:none;color:inherit">
           <div>
-            <div class="st">Data Governance in Pharma: Navigating the Digital &amp; AI Revolution</div>
-            <div class="sv">Pistoia Alliance · European Life Science Informatics Forum Benelux (5th) · GSK Wavre.</div>
+            <div class="wr-org">Kawa</div>
+            <div class="wr-role">Apps · applied AI</div>
           </div>
-          <div class="role-pill">Speaker + host</div>
-        </div>
-        <div class="speak-row" data-reveal>
-          <div class="date">2024 → 2025</div>
+          <div class="wr-title"><b>AI route planner for motorcyclists.</b> Curvy, toll-aware routes, GPX export.</div>
+          <div class="wr-metric"><div class="num">v1</div><div class="lbl">beta</div></div>
+        </a>
+
+        <a class="work-row" href="#work" data-nav="work" data-reveal style="text-decoration:none;color:inherit">
           <div>
-            <div class="st">Invited talks: FAIR, AI in drug discovery, knowledge graphs</div>
-            <div class="sv">Pharma + biotech partner sessions across Europe. Full list on request.</div>
+            <div class="wr-org">Knowledge graph</div>
+            <div class="wr-role">Data platforms</div>
           </div>
-          <div class="role-pill">Speaker</div>
-        </div>
+          <div class="wr-title"><b>FAIR governance for a top five pharma.</b> Inception to delivery.</div>
+          <div class="wr-metric"><div class="num">30+</div><div class="lbl">stakeholders</div></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT strip -->
+  <!-- WHY RADTECH strip -->
   <section class="band alt" id="home-about">
     <div class="wrap">
       <div class="about-strip" data-reveal>
-        <div class="portrait"><span class="mono-init">SS</span></div>
         <div class="a-body">
-          <p><b>Sukhi Singh</b>, founder of RadTech. I work on the data platforms behind antibody discovery, the layer between a sequencer and a decision, and I build my own AI products on the side. A scientist's rigour with a builder's restlessness, which is roughly how an engagement tends to feel.</p>
+          <p><b>Why RadTech.</b> Fifteen years in data-driven R&amp;D and a PhD in bioinformatics. We have helped a leadership team raise its Series A, and we ship our own products, so our advice has met a release date.</p>
           <div class="chips">
-            <span class="tag">PhD Bioinformatics · Max Planck</span>
+            <span class="tag">PhD Bioinformatics</span>
             <span class="tag warm">Wharton Entrepreneurship</span>
-            <span class="tag">Pistoia Alliance</span>
-            <span class="tag warm">80+ countries</span>
+            <span class="tag">McKinsey Forward</span>
+            <span class="tag warm">IBM GenAI for Executives</span>
+            <span class="tag">FAIR Cookbook contributor</span>
+            <span class="tag warm">Pistoia Alliance speaker</span>
           </div>
-          <a class="txt-link" data-nav="about">More about Sukhi <span class="arw">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSIGHTS (demoted) -->
-  <section class="band" id="home-insights">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <div><h2>Field <span class="serif-i">notes</span></h2></div>
-        <span class="eyebrow">Writing · proof of work</span>
-      </div>
-      <div class="insight-list">
-        <div class="insight-row" data-reveal>
-          <span class="idate">2026-05-20</span>
-          <span class="ititle">PEGS Boston 2026: Design Is the Easy Part Now</span>
-          <span class="tag">Antibody Eng.</span>
-        </div>
-        <div class="insight-row" data-reveal>
-          <span class="idate">2026-04-24</span>
-          <span class="ititle">VHH Humanization Is Mostly a Search Problem, Not a Grafting Problem</span>
-          <span class="tag">Antibody Eng.</span>
-        </div>
-        <div class="insight-row" data-reveal>
-          <span class="idate">2026-04-21</span>
-          <span class="ititle">Data Governance: Notes from the Pistoia Alliance Benelux Forum #5</span>
-          <span class="tag warm">Pharma + AI</span>
+          <a class="txt-link" href="#about" data-nav="about">About RadTech <span class="arw">→</span></a>
         </div>
       </div>
     </div>
@@ -709,264 +669,22 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="hero-glow"></div>
     <div class="wrap">
       <h2 data-reveal>Let's see if RadTech is the <span class="serif-i teal">right call</span>.</h2>
-      <p data-reveal>A 30-minute discovery call, free, no pitch. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
+      <p data-reveal>A 15-minute call, free, no pitch. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
       <div class="ctas" data-reveal>
-        <a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a discovery call <span class="arw">→</span></a>
-        <a class="btn btn-ghost" data-nav="contact">Other ways to reach me <span class="arw">→</span></a>
+        <a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a 15-minute call <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#contact" data-nav="contact">Contact <span class="arw">→</span></a>
       </div>
-      <div class="direct"><a href="mailto:contact@radtech.nl">contact@radtech.nl</a> · /in/vanbug · Amsterdam, NL</div>
+      <div class="direct"><a href="mailto:contact@radtech.nl">contact@radtech.nl</a> · Netherlands</div>
     </div>
   </section>
 </main>
 
-<!-- ====================== WORK ====================== -->
-<main class="page" id="page-work">
-  <section class="wrap">
-    <div class="page-head">
-      <p class="eyebrow"><span class="tk">//</span> Portfolio · engagements &amp; case studies</p>
-      <h1>Selected <span class="serif-i">portfolio</span></h1>
-      <p class="lede">Fifteen years across antibody discovery, FAIR data, genome assembly, and AI strategy. A short list of the engagements that taught me the most. For the products and tools I build myself, see Projects.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <div class="case">
-        <div>
-          <div class="c-meta">Project Lead · 2025 → present</div>
-          <div class="c-org">ENPICOM</div>
-          <div class="c-tags tags"><span class="tag">Antibody NGS</span><span class="tag">FAIR</span><span class="tag warm">ISO 27001</span></div>
-        </div>
-        <div>
-          <h3>Antibody discovery platform</h3>
-          <p>Leading &gt;€1M cross-functional programs turning immune-repertoire NGS into therapeutic antibody candidate shortlists. Drive the product roadmap with scientists, engineers, and external pharma partners. Multi-million-euro budgets, FAIR-by-design, ISO 27001 environment.</p>
-        </div>
-      </div>
-
-      <div class="case">
-        <div>
-          <div class="c-meta">Principal Consultant · 2024 → present</div>
-          <div class="c-org">RadTech</div>
-          <div class="c-tags tags"><span class="tag">AI strategy</span><span class="tag">FAIR</span><span class="tag warm">Biopharma</span></div>
-        </div>
-        <div>
-          <h3>AI &amp; data strategy for biopharma</h3>
-          <p>Advise pharma and biotech organisations on AI, data governance, and FAIR platforms, from business case through delivery. Engagements span early opportunity sizing to multi-million-euro programs, bridging scientists, engineers, and leadership.</p>
-        </div>
-      </div>
-
-      <div class="case">
-        <div>
-          <div class="c-meta">Program Lead · 2023 → 2024</div>
-          <div class="c-org">Genialis</div>
-          <div class="c-tags tags"><span class="tag">AI biomarkers</span><span class="tag">Cancer</span><span class="tag warm">GDPR + HIPAA</span></div>
-        </div>
-        <div>
-          <h3>AI biomarker discovery program</h3>
-          <p>Led cancer-biomarker programs combining AI, ML, and NGS. Coordinated KOLs, CROs, and senior leadership. Award-winning project management across multi-site clinical and computational delivery.</p>
-        </div>
-      </div>
-
-      <div class="case">
-        <div>
-          <div class="c-meta">FAIR consultant · core team · 2019 → 2021</div>
-          <div class="c-org">Novartis Data42</div>
-          <div class="c-tags tags"><span class="tag">Knowledge graphs</span><span class="tag">FAIR</span><span class="tag warm">Top 5 pharma</span></div>
-        </div>
-        <div>
-          <h3>Data42 knowledge graph</h3>
-          <p>Embedded on the Data42 program from inception through delivery as a FAIR consultant and core team member, working with 30+ stakeholders across business, science, and engineering. This is the governance design that decides whether a billion-dollar data platform is actually queryable.</p>
-        </div>
-      </div>
-
-      <div class="case">
-        <div>
-          <div class="c-meta">Bioinformatician · 2018</div>
-          <div class="c-org">HZPC Research</div>
-          <div class="c-tags tags"><span class="tag">Genome assembly</span><span class="tag warm">Polyploid</span></div>
-        </div>
-        <div>
-          <h3>First tetraploid potato genome assembly</h3>
-          <p>Contributed to the first published tetraploid potato genome assembly, a hard polyploid problem with direct breeding-program implications. Published, cited, productionised.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="wrap">
-      <h2 data-reveal>Have a program that needs to <span class="serif-i teal">ship</span>?</h2>
-      <p data-reveal>Roadmap, platform blueprint, or embedded advisory: a 30-minute call decides which fits.</p>
-      <div class="ctas" data-reveal><a class="btn btn-primary" data-nav="contact">Get in touch <span class="arw">→</span></a></div>
-    </div>
-  </section>
-</main>
-
-<!-- ====================== PROJECTS ====================== -->
-<main class="page" id="page-projects">
-  <section class="wrap">
-    <div class="page-head">
-      <p class="eyebrow"><span class="tk">//</span> Projects · things I build</p>
-      <h1>Built, not just <span class="serif-i">advised</span>.</h1>
-      <p class="lede">Outside client work I design and ship my own products and tools, usually solo and end to end, from the research spike to running code. A selection of what I have been building.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <div class="proj-list">
-
-        <!-- Pourtrait -->
-        <article class="proj" data-reveal>
-          <div class="proj-viz">
-            <span class="vlabel">Pourtrait · coffee</span>
-            <svg viewBox="0 0 320 200" fill="none" aria-hidden="true">
-              <g stroke="rgba(255,255,255,0.06)" stroke-width="1"><path d="M0 50H320M0 100H320M0 150H320M80 0V200M160 0V200M240 0V200"/></g>
-              <path d="M118 58 h64 a8 8 0 0 1 8 9 l-10 78 a14 14 0 0 1-14 12 h-32 a14 14 0 0 1-14-12 l-10-78 a8 8 0 0 1 8-9 z" stroke="#5FDDCF" stroke-width="3"/>
-              <path d="M190 72 q22 -4 22 16 t-24 20" stroke="#5FDDCF" stroke-width="3"/>
-              <circle cx="150" cy="46" r="3.6" fill="#E6A85C"/>
-              <circle cx="168" cy="40" r="3.6" fill="#E6A85C"/>
-              <circle cx="186" cy="46" r="3.6" fill="#E6A85C"/>
-            </svg>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">Product · solo founder · 2026 · in development</div>
-            <h3>Pourtrait: rate the barista, not the <span class="serif-i">cafe</span></h3>
-            <p class="proj-lede">A discovery app for specialty coffee that scores the person who made your drink, not just the venue it came from, with live shift-aware search for who is actually working right now.</p>
-            <ul class="proj-points">
-              <li>Location-aware discovery of nearby baristas and venues, built on a live NL specialty-coffee dataset.</li>
-              <li>Claim-your-profile identity and reputation: consent-gated scoring so a barista's rating only shows once they've claimed it.</li>
-              <li>Trust and safety built in from the start: blocking, reporting, moderation, and duplicate-profile detection.</li>
-            </ul>
-            <div class="proj-tags tags"><span class="tag">React Native</span><span class="tag">Supabase</span><span class="tag">PostGIS</span><span class="tag warm">Trust & safety</span></div>
-            <div class="proj-links"><span class="status-pill">In development · Android beta</span></div>
-          </div>
-        </article>
-
-        <!-- Kawa product -->
-        <article class="proj" data-reveal>
-          <div class="proj-viz">
-            <span class="vlabel">Kawa · routing</span>
-            <svg viewBox="0 0 320 200" fill="none" aria-hidden="true">
-              <g stroke="rgba(255,255,255,0.06)" stroke-width="1"><path d="M0 50H320M0 100H320M0 150H320M80 0V200M160 0V200M240 0V200"/></g>
-              <path d="M38 162 C 92 152 64 92 130 96 S 206 152 198 92 252 44 288 52" stroke="#5FDDCF" stroke-width="3" stroke-linecap="round"/>
-              <g fill="#5FDDCF"><circle cx="130" cy="96" r="3.6"/><circle cx="198" cy="92" r="3.6"/></g>
-              <circle cx="38" cy="162" r="6.5" fill="#E6A85C"/>
-              <circle cx="288" cy="52" r="6.5" fill="#E6A85C"/>
-            </svg>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">Product · solo founder · 2026 · in development</div>
-            <h3>Kawa: a community road-intelligence layer for <span class="serif-i">motorcyclists</span></h3>
-            <p class="proj-lede">An AI route planner that finds the good roads, not just the fast ones, and quietly learns which roads are actually worth riding from the community that rides them.</p>
-            <ul class="proj-points">
-              <li>Plans curvy, scenic, toll- and highway-aware routes on open map data, then exports turn-by-turn GPX for offline navigation. No API key, no build step.</li>
-              <li>Builds a living road-quality map from <b>anonymous, blurred road geometry</b>: privacy-first by design, with no tracking of individual trips.</li>
-              <li>Private and group ride sharing, a lightweight rider identity, and a merit system that rewards mapping and rating real roads.</li>
-            </ul>
-            <div class="proj-tags tags"><span class="tag">AI planning</span><span class="tag">OpenStreetMap</span><span class="tag">Leaflet</span><span class="tag warm">GPX / PWA</span><span class="tag warm">Privacy-first</span></div>
-            <div class="proj-links"><span class="status-pill">Working v1 · private beta</span></div>
-          </div>
-        </article>
-
-        <!-- Kawa Ride Atlas -->
-        <article class="proj" data-reveal>
-          <div class="proj-viz">
-            <span class="vlabel">Kawa · ride atlas</span>
-            <svg viewBox="0 0 320 200" fill="none" aria-hidden="true" stroke-linecap="round">
-              <g stroke="#cfccc6" stroke-width="2"><circle cx="92" cy="138" r="30"/><circle cx="238" cy="138" r="30"/><path d="M76 104 L138 80 L204 84 L260 112"/></g>
-              <path d="M126 98 L208 101 L212 124 L130 126 Z" stroke="#E6A85C" stroke-width="2"/>
-              <g stroke="#5FDDCF" stroke-width="0.8" stroke-dasharray="3 3"><line x1="168" y1="42" x2="170" y2="80"/><line x1="68" y1="58" x2="92" y2="104"/></g>
-              <text x="150" y="34" font-family="JetBrains Mono, monospace" font-size="8" fill="#E6A85C" letter-spacing="1">03 ENGINE</text>
-              <path d="M238 138 A 60 60 0 0 0 216 142" stroke="#5FDDCF" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">Interactive studies · 2026 · vanilla JS, zero dependencies</div>
-            <h3>Kawa Ride Atlas: learn the machine, then the <span class="serif-i">physics</span></h3>
-            <p class="proj-lede">Two interactive plates that teach a motorcycle from the inside out, built as design studies for the Kawa brand.</p>
-            <ul class="proj-points">
-              <li><b>Exploded parts atlas.</b> Pull the bike apart component by component; click any part to read what it does and why it is shaped that way. 23 parts across 6 systems.</li>
-              <li><b>Lean &amp; cornering simulator.</b> Cornering as a live physics problem: pick a body position, change speed, radius and grip, and watch the lean angle and force vectors fall out of the maths in real time.</li>
-            </ul>
-            <div class="proj-tags tags"><span class="tag">Interactive viz</span><span class="tag">Real-time physics</span><span class="tag">Inline SVG</span><span class="tag warm">Zero dependencies</span></div>
-            <div class="proj-links"><span class="status-pill">Prototype</span></div>
-          </div>
-        </article>
-
-        <!-- agent-ken -->
-        <article class="proj" data-reveal>
-          <div class="proj-viz">
-            <span class="vlabel">agent-ken · orchestration</span>
-            <svg viewBox="0 0 320 200" fill="none" aria-hidden="true">
-              <g stroke="#E6A85C" stroke-width="1.5" opacity="0.85"><path d="M64 64 L150 64M64 64 L150 138M150 64 L232 100M150 138 L232 100M232 100 L296 100"/></g>
-              <g><circle cx="64" cy="64" r="11" fill="#0c1626" stroke="#5FDDCF" stroke-width="2"/>
-                <circle cx="150" cy="64" r="11" fill="#0c1626" stroke="#5FDDCF" stroke-width="2"/>
-                <circle cx="150" cy="138" r="11" fill="#0c1626" stroke="#5FDDCF" stroke-width="2"/>
-                <circle cx="232" cy="100" r="11" fill="#0c1626" stroke="#5FDDCF" stroke-width="2"/>
-                <circle cx="296" cy="100" r="11" fill="#E6A85C"/></g>
-            </svg>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">AI tooling · personal · 2026 · Python</div>
-            <h3>agent-ken: a parallel, self-reviewing <span class="serif-i">agent orchestrator</span></h3>
-            <p class="proj-lede">A dependency-aware kanban that takes a single brief, turns it into a plan, and ships it with a fleet of AI agents, without me babysitting each step.</p>
-            <ul class="proj-points">
-              <li>Decomposes a task into subtasks with explicit dependencies, then runs the independent ones in parallel waves.</li>
-              <li>Gates every subtask through an automated reviewer and only marks work done once it passes: quality built into the loop.</li>
-              <li>Generates live kanban, mind-map and flow visualisations of the whole run as self-contained HTML dashboards.</li>
-            </ul>
-            <div class="proj-tags tags"><span class="tag">AI agents</span><span class="tag">Orchestration</span><span class="tag">Python</span><span class="tag warm">LLM review loop</span></div>
-            <div class="proj-links"><span class="status-pill">Personal tool</span></div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- code & tools -->
-  <section class="band alt">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Code &amp; <span class="serif-i">tools</span></h2><p class="sub">Smaller things I have built and use weekly.</p></div></div>
-      <div class="repo-grid">
-        <div class="repo">
-          <div class="rhead"><h4>new-post.py</h4><span class="tag">Python</span></div>
-          <p>Live news + literature digest piped through an LLM into a finished blog post, four LinkedIn variants, a Bluesky cross-post and a newsletter draft. A nine-step pipeline with stage banners.</p>
-        </div>
-        <div class="repo">
-          <div class="rhead"><h4>business-week.py</h4><span class="tag">Python · yfinance</span></div>
-          <p>Weekly antibody-business analyst pipeline: market prices, scoped news and RSS, LLM batch categorisation, and a generated 600 to 800 word analysis.</p>
-        </div>
-        <div class="repo">
-          <div class="rhead"><h4>fair-cookbook</h4><span class="tag warm">FAIR · standards</span></div>
-          <p>Contributions to the FAIR Cookbook on biopharma data practices: pseudonymisation, linked-data modelling, governance patterns.</p>
-          <a href="https://faircookbook.elixir-europe.org" target="_blank" rel="noopener">faircookbook.elixir-europe.org →</a>
-        </div>
-        <div class="repo">
-          <div class="rhead"><h4>projectAnalytics</h4><span class="tag">Python · uv</span></div>
-          <p>Self-contained HTML dashboards generated from project, time-tracking and HR data sources: executive view, analytics, timeline, budget and resourcing for reporting and capacity planning.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="wrap">
-      <h2 data-reveal>Want something like this <span class="serif-i teal">built</span>?</h2>
-      <p data-reveal>Most of these started as a weekend research spike. If you need one shipped properly, that is the day job.</p>
-      <div class="ctas" data-reveal><a class="btn btn-primary" data-nav="contact">Get in touch <span class="arw">→</span></a></div>
-    </div>
-  </section>
-</main>
-
-<!-- ====================== SERVICES ====================== -->
 <main class="page" id="page-services">
   <section class="wrap">
     <div class="page-head">
       <p class="eyebrow"><span class="tk">//</span> Services</p>
-      <h1>I turn <span class="serif-i">expensive</span> data bottlenecks into shipped systems.</h1>
-      <p class="lede">AI and data strategy for teams doing hard, technical work. I have run cross-functional programs at ENPICOM, Novartis Data42, Genialis, and The Hyve. Three engagement shapes, honest scoping, and a straight answer on fit before we talk fees.</p>
+      <h1>Five ways to work with <span class="serif-i">RadTech</span>.</h1>
+      <p class="lede">We build what you decide, and help you decide what to build. Each service below names its buyer, its engagement shape and what you walk away with. If the fit is wrong, we say so on the first call.</p>
     </div>
   </section>
 
@@ -976,34 +694,56 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
         <div class="svc-row">
           <div class="svc-num">01</div>
           <div class="svc-body">
-            <h3>AI strategy &amp; business cases</h3>
-            <p>From hypothesis to funded program: opportunity sizing, build-versus-buy, and an AI roadmap your team and your board both believe. The work that decides where AI earns its keep in your roadmap, and where it is theatre.</p>
+            <h3>Apps</h3>
+            <p>React Native on Supabase, from first screen to store release: auth, data, maps, moderation and the parts that usually break. For founders and SMEs with a validated idea and no mobile team.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Scoped per engagement</div>
-            <div class="deliv"><span class="k">Deliverable</span>An AI roadmap and a board-ready business case.</div>
+            <div class="fee">Fixed fee per phase</div>
+            <div class="deliv"><span class="k">Deliverable</span>App in the stores, source code, handover.</div>
           </div>
         </div>
         <div class="svc-row">
           <div class="svc-num">02</div>
           <div class="svc-body">
-            <h3>FAIR data platforms</h3>
-            <p>Linked-data and knowledge-graph architecture for regulated, data-intensive environments. Schema, vocabulary, ingestion, and governance, designed FAIR by design rather than bolted on, so a model can actually query your data.</p>
+            <h3>Web</h3>
+            <p>Marketing sites, portals and web applications that load fast and that your team can maintain. For companies replacing an agency site or shipping a first product interface.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Fixed fee, quoted after scoping</div>
-            <div class="deliv"><span class="k">Deliverable</span>A platform blueprint and architecture diagram your team can execute.</div>
+            <div class="fee">Fixed fee, then an hourly bucket</div>
+            <div class="deliv"><span class="k">Deliverable</span>Live site, repository, 30 days of support.</div>
           </div>
         </div>
         <div class="svc-row">
           <div class="svc-num">03</div>
           <div class="svc-body">
-            <h3>Discovery &amp; advisory</h3>
-            <p>Embedded technical advisory for discovery, data, and product teams. Think of it as the translator between scientific intent and shipped systems, the senior technical voice your program has been missing.</p>
+            <h3>Applied AI</h3>
+            <p>We find where AI pays in your field and build it in: business case, pilot, production. For leadership teams under board pressure to act on AI.</p>
           </div>
           <div class="svc-aside">
-            <div class="fee">Monthly retainer, ask for the rate</div>
-            <div class="deliv"><span class="k">Engagement</span>Retained, remote-first, monthly.</div>
+            <div class="fee">Fixed fee per stage</div>
+            <div class="deliv"><span class="k">Deliverable</span>Roadmap and business case in six weeks, then a pilot.</div>
+          </div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-num">04</div>
+          <div class="svc-body">
+            <h3>Founder advisory</h3>
+            <p>One-to-one sessions for CEOs and founders on product, fundraising, technical hiring and hard calls, plus a senior person to message before the decision, not after. For founders without a peer to think aloud with.</p>
+          </div>
+          <div class="svc-aside">
+            <div class="fee">Monthly retainer, three-month minimum</div>
+            <div class="deliv"><span class="k">Deliverable</span>Fortnightly sessions, written notes, on-call between.</div>
+          </div>
+        </div>
+        <div class="svc-row">
+          <div class="svc-num">05</div>
+          <div class="svc-body">
+            <h3>Data platforms <span class="tag">specialism</span></h3>
+            <p>FAIR data, knowledge graphs and governance for regulated data, GDPR and HIPAA included. For data leaders in pharma and biotech.</p>
+          </div>
+          <div class="svc-aside">
+            <div class="fee">Fixed fee after scoping</div>
+            <div class="deliv"><span class="k">Deliverable</span>Platform blueprint your team can execute.</div>
           </div>
         </div>
       </div>
@@ -1014,48 +754,195 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="wrap">
       <div class="sec-head"><div><h2>How an engagement <span class="serif-i">runs</span></h2></div></div>
       <ol class="process">
-        <li><span class="pn">01</span><span class="ps">Scoping call</span><span class="pd">Free, thirty minutes. I ask the questions that decide whether you actually need an outside specialist.</span></li>
-        <li><span class="pn">02</span><span class="ps">Fixed proposal</span><span class="pd">Within 48 hours: scope, deliverable, fee, and what I need from you. No retainer dance.</span></li>
-        <li><span class="pn">03</span><span class="ps">Execution</span><span class="pd">I work directly with your lead. Weekly written updates. Final deliverable handed over, no consultancy-speak.</span></li>
-        <li><span class="pn">04</span><span class="ps">Handover</span><span class="pd">Your team owns it. I'm available for thirty days of follow-up questions at no charge.</span></li>
+        <li><span class="pn">01</span><span class="ps">Scoping call</span><span class="pd">Fifteen minutes, free. We ask what you need and tell you whether RadTech is the right fit.</span></li>
+        <li><span class="pn">02</span><span class="ps">Fixed proposal</span><span class="pd">Within 48 hours: scope, deliverable, fee.</span></li>
+        <li><span class="pn">03</span><span class="ps">Build</span><span class="pd">Weekly written updates and one point of contact.</span></li>
+        <li><span class="pn">04</span><span class="ps">Handover</span><span class="pd">Your team owns it. 30 days of follow-up included.</span></li>
       </ol>
     </div>
   </section>
 
   <section class="cta-band">
     <div class="wrap">
-      <h2 data-reveal>Roadmap, platform, or <span class="serif-i teal">advisory</span>?</h2>
-      <p data-reveal>A 30-minute discovery call decides which fits, and whether you need an outside specialist at all.</p>
-      <div class="ctas" data-reveal><a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a discovery call <span class="arw">→</span></a></div>
-      <div class="direct">Sukhi Singh, founder, RadTech</div>
+      <h2 data-reveal>Know what you need, or not <span class="serif-i teal">yet</span>?</h2>
+      <p data-reveal>A 15-minute call settles which service fits, and whether you need us at all.</p>
+      <div class="ctas" data-reveal><a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a 15-minute call <span class="arw">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<main class="page" id="page-work">
+  <section class="wrap">
+    <div class="page-head">
+      <p class="eyebrow"><span class="tk">//</span> Work</p>
+      <h1>Selected <span class="serif-i">work</span></h1>
+      <p class="lede">Products RadTech designed and built, and programs RadTech has led. Client names are withheld, so each card describes the problem and the result.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Apps</div>
+          <div class="c-org">Pourtrait</div>
+          <div class="c-tags tags"><span class="tag">React Native</span><span class="tag">Supabase</span><span class="tag warm">Live · iOS + Android</span></div>
+        </div>
+        <div>
+          <h3><a href="#pourtrait" data-nav="pourtrait">Coffee discovery app</a></h3>
+          <p>Designed and built by RadTech. Credits the barista who made your cup, not just the café, with shift-aware search and consent-gated profiles. Blocking, reporting and moderation shipped from day one.</p>
+          <div class="proj-links"><a class="txt-link" href="#pourtrait" data-nav="pourtrait">Case study <span class="arw">→</span></a><a class="txt-link" href="https://pourtrait.nl" target="_blank" rel="noopener">pourtrait.nl <span class="arw">↗</span></a></div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Apps, Applied AI</div>
+          <div class="c-org">Kawa</div>
+          <div class="c-tags tags"><span class="tag">Open map data</span><span class="tag">GPX export</span><span class="tag warm">Private beta</span></div>
+        </div>
+        <div>
+          <h3>AI route planner for motorcyclists</h3>
+          <p>Designed and built by RadTech. Plans curvy, scenic, toll-aware routes on open map data and exports GPX. Privacy-first road-quality map built from blurred geometry.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Data platforms</div>
+          <div class="c-org">Top five pharma</div>
+          <div class="c-tags tags"><span class="tag">Knowledge graphs</span><span class="tag">FAIR</span><span class="tag warm">Delivered</span></div>
+        </div>
+        <div>
+          <h3>Knowledge graph and FAIR governance program</h3>
+          <p>Led by RadTech from inception to delivery, with 30+ stakeholders across business, science and engineering. The governance design that decides whether a billion-euro data platform is queryable.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Applied AI, Data platforms</div>
+          <div class="c-org">Oncology biomarkers</div>
+          <div class="c-tags tags"><span class="tag">Machine learning</span><span class="tag">Sequencing data</span><span class="tag warm">Delivered</span></div>
+        </div>
+        <div>
+          <h3>AI biomarker discovery program</h3>
+          <p>Led by RadTech. Combined AI, machine learning and sequencing data across multi-site clinical and computational delivery, under GDPR and HIPAA.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Applied AI</div>
+          <div class="c-org">Renewable energy</div>
+          <div class="c-tags tags"><span class="tag">GenAI</span><span class="tag">Business cases</span><span class="tag warm">Deployed</span></div>
+        </div>
+        <div>
+          <h3>AI and GenAI business cases for an energy group</h3>
+          <p>Delivered by RadTech. Business cases built and deployed with ministries, private equity and operations teams.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <div class="c-meta">Proves · Founder advisory</div>
+          <div class="c-org">Series A</div>
+          <div class="c-tags tags"><span class="tag">Pitch</span><span class="tag">Financing</span><span class="tag warm">Raised</span></div>
+        </div>
+        <div>
+          <h3>Series A support for a leadership team</h3>
+          <p>Led by RadTech. Pitch, financing structure and technical hiring plan, worked through with the leadership team before the round.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 data-reveal>Want something like this <span class="serif-i teal">built</span>?</h2>
+      <p data-reveal>A 15-minute call, then a fixed-scope proposal within 48 hours.</p>
+      <div class="ctas" data-reveal><a class="btn btn-primary" href="#contact" data-nav="contact">Get in touch <span class="arw">→</span></a></div>
     </div>
   </section>
 </main>
 
 <!-- ====================== ABOUT ====================== -->
+<!-- ====================== WORK / POURTRAIT ====================== -->
+<main class="page" id="page-pourtrait">
+  <section class="wrap">
+    <div class="page-head">
+      <p class="eyebrow"><span class="tk">//</span> Work · Apps</p>
+      <h1>Pourtrait: every great cup has a <span class="serif-i">name</span>.</h1>
+      <p class="lede">A coffee discovery app that credits the barista who made your cup, not just the café. Designed and built by RadTech, live on iOS and Android.</p>
+      <div class="hero-ctas" style="margin-top:26px;">
+        <a class="btn btn-primary" href="https://pourtrait.nl" target="_blank" rel="noopener">Visit pourtrait.nl <span class="arw">↗</span></a>
+        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.pourtrait.app" target="_blank" rel="noopener">Google Play <span class="arw">↗</span></a>
+        <a class="btn btn-ghost" href="https://apps.apple.com/app/pourtrait/id6793016088" target="_blank" rel="noopener">App Store <span class="arw">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="cols-2">
+        <div>
+          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> What it does</p>
+          <div class="timeline">
+            <div class="tl-row"><div class="role">Three sides of a cup</div><div class="desc">Drinker, barista and café each have a profile, so credit lands on the person who poured.</div></div>
+            <div class="tl-row warm"><div class="role">Follow and find</div><div class="desc">Follow the baristas you trust, log the cups they pour, and find them wherever they work next.</div></div>
+            <div class="tl-row"><div class="role">Claim your profile</div><div class="desc">Baristas and cafés claim their pages. Ratings only show after a consent-gated claim.</div></div>
+            <div class="tl-row warm"><div class="role">Trust and safety from day one</div><div class="desc">Blocking, reporting, moderation and duplicate-profile detection shipped in the first release.</div></div>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> How RadTech built it</p>
+          <div class="timeline">
+            <div class="tl-row warm"><div class="role">Stack</div><div class="desc">React Native with Expo on Supabase. PostGIS drives location-aware search for nearby baristas and venues.</div></div>
+            <div class="tl-row"><div class="role">Data</div><div class="desc">A live specialty-coffee dataset with 7,800+ cities on the map, from Amsterdam to Berlin, London and Paris.</div></div>
+            <div class="tl-row warm"><div class="role">Languages</div><div class="desc">English, Dutch, German and French.</div></div>
+            <div class="tl-row"><div class="role">Status</div><div class="desc">Live on Google Play and the App Store, with an early-access list for cities not yet mapped.</div></div>
+          </div>
+          <div class="chips" style="margin-top:22px;">
+            <span class="tag">React Native</span><span class="tag warm">Expo</span><span class="tag">Supabase</span><span class="tag warm">PostGIS</span><span class="tag">Trust &amp; safety</span><span class="tag warm">iOS + Android</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:44px;"><a class="txt-link" href="#work" data-nav="work"><span class="arw">←</span> All work</a></p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 data-reveal>Want an app like <span class="serif-i teal">this</span>?</h2>
+      <p data-reveal>A 15-minute call, then a fixed-scope proposal within 48 hours.</p>
+      <div class="ctas" data-reveal><a class="btn btn-primary" href="#contact" data-nav="contact">Get in touch <span class="arw">→</span></a></div>
+    </div>
+  </section>
+</main>
+
 <main class="page" id="page-about">
   <section class="wrap">
     <div class="page-head">
-      <p class="eyebrow"><span class="tk">//</span> About the founder</p>
-      <h1>Sukhi <span class="serif-i">Singh</span></h1>
-      <p class="lede">Founder of RadTech. I work on the data platforms behind antibody discovery, the layer between a sequencer and a decision, and I design and ship my own AI products on the side. Currently also Project Lead at ENPICOM in Den Bosch.</p>
+      <p class="eyebrow"><span class="tk">//</span> About</p>
+      <h1>Why <span class="serif-i">RadTech</span></h1>
+      <p class="lede">RadTech is a Netherlands product and advisory studio that builds apps, web products and applied AI, and advises the founders behind them.</p>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
       <div class="about-strip">
-        <div class="portrait"><span class="mono-init">SS</span></div>
         <div class="a-body">
-          <p>I write and build the things that have to be said but rarely get said inside pharma BD decks. Call it the unglamorous middle layer: how data is shaped before a model sees it, which platform decisions kill a discovery program quietly, and where AI actually buys you something versus where it's theatre.</p>
-          <p>Outside the work: I've travelled to more than 80 countries, ride motorcycles, DJ, play ultimate frisbee, and hike whenever the calendar allows.</p>
+          <p>Fifteen years in data-driven R&amp;D and a PhD in bioinformatics sit behind RadTech. We have led multi-million-euro AI and data programs for top five pharma and biotech, contributed to the FAIR Cookbook, negotiated GDPR and HIPAA data-sharing agreements, and helped a leadership team raise its Series A. Business training from Wharton and McKinsey Forward. Working networks across the Gulf, India, China and Latin America. We also ship our own products, so our advice has met a release date.</p>
           <div class="chips">
-            <span class="tag">ENPICOM · Project Lead</span>
-            <span class="tag warm">Amsterdam / Den Bosch</span>
-            <span class="tag">Pistoia Alliance</span>
-            <span class="tag warm">PhD · Max Planck</span>
+            <span class="tag">PhD Bioinformatics</span>
+            <span class="tag warm">Wharton Entrepreneurship</span>
+            <span class="tag">McKinsey Forward</span>
+            <span class="tag warm">IBM GenAI for Executives</span>
+            <span class="tag">FAIR Cookbook contributor</span>
+            <span class="tag warm">Pistoia Alliance speaker</span>
           </div>
-          <a class="btn btn-primary btn-sm" data-nav="contact">Get in touch <span class="arw">→</span></a>
+          <a class="btn btn-primary btn-sm" href="#contact" data-nav="contact">Get in touch <span class="arw">→</span></a>
         </div>
       </div>
     </div>
@@ -1065,55 +952,16 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="wrap">
       <div class="cols-2">
         <div>
-          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> Experience</p>
+          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> How we work</p>
           <div class="timeline">
-            <div class="tl-row"><div class="period">Sep 2025 → present</div><div class="role">Project Lead</div><div class="org">ENPICOM</div><div class="desc">Lead &gt;€1M cross-functional antibody discovery + analytics programs. R&amp;D, AI, product roadmap. FAIR by design. ISO 27001.</div></div>
-            <div class="tl-row warm"><div class="period">Mar 2024 → present</div><div class="role">Principal Consultant</div><div class="org">RadTech</div><div class="desc">AI &amp; data strategy, FAIR, linked data. Global partnerships across Asia and LATAM.</div></div>
-            <div class="tl-row"><div class="period">Mar 2024 → Feb 2025</div><div class="role">AI Program Manager</div><div class="org">Assal Energy</div><div class="desc">Built and deployed AI &amp; GenAI business cases for renewable energy with ministries, PE, and ops teams.</div></div>
-            <div class="tl-row warm"><div class="period">Apr 2023 → Feb 2024</div><div class="role">Program Lead, AI Biomarker Discovery</div><div class="org">Genialis</div><div class="desc">Cancer biomarker programs combining AI, ML, NGS. FAIR, ISO 27001, GDPR, HIPAA compliant.</div></div>
-            <div class="tl-row"><div class="period">Mar 2021 → Apr 2023</div><div class="role">Senior Applied Scientist &amp; Alliance Manager</div><div class="org">Genialis (Boston)</div><div class="desc">Biopharma consulting on data science, bioinformatics, AI/ML, multi-modal analysis for precision health.</div></div>
-            <div class="tl-row warm"><div class="period">Nov 2019 → Mar 2021</div><div class="role">FAIR Data &amp; AI Consultant</div><div class="org">The Hyve</div><div class="desc">Advised Top 15 pharma on knowledge engineering, OMOP/CDISC mapping, RWE. Embedded on the Novartis Data42 knowledge graph as core team member.</div></div>
-            <div class="tl-row"><div class="period">2010 → 2019</div><div class="role">Bioinformatician</div><div class="org">HZPC · Max Planck · TU Dresden</div><div class="desc">First tetraploid potato genome assembly. Epigenetics. Editor at biostars.org.</div></div>
+            <div class="tl-row"><div class="role">Fixed scope before fees</div><div class="desc">Scope, deliverable and fee agreed first.</div></div>
+            <div class="tl-row warm"><div class="role">One senior person, not a bench</div><div class="desc">No handoff to juniors.</div></div>
+            <div class="tl-row"><div class="role">We say no on the call if the fit is wrong</div><div class="desc">Sometimes that means a referral.</div></div>
           </div>
         </div>
         <div>
-          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> Education</p>
-          <div class="timeline">
-            <div class="tl-row warm"><div class="period">2024 → 2025</div><div class="role">Entrepreneurship Specialization</div><div class="org">The Wharton School</div><div class="desc">Grade 90%. Pitch development, venture financing, lean scaling, team building.</div></div>
-            <div class="tl-row"><div class="period">2011 → 2016</div><div class="role">PhD, Bioinformatics</div><div class="org">Max Planck Society</div><div class="desc">Magna cum Laude (1.3). Six papers on H3K4 methyltransferases in mESCs.</div></div>
-          </div>
-          <p class="eyebrow" style="margin:30px 0 14px;"><span class="tk">//</span> Selected publications</p>
-          <div class="pub-list">
-            <div>FAIR Cookbook: community contribution on biopharma data practices.</div>
-            <div>BOD1L is required for DNA replication fidelity (Cell Reports, co-author).</div>
-            <div>Set1 complex stabilizes H3K4 dimethylation at pluripotency genes (Mol Cell).</div>
-            <div>Kmt2b regulates transcriptional bursting during ES differentiation (Genome Biology).</div>
-            <div>Oct4 + Mll2: maintenance of bivalent chromatin in mESCs (Nature Comms).</div>
-            <div class="more">Full list on Google Scholar (y62wfS8AAAAJ)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <div class="sec-head"><div><h2>Speaking &amp; <span class="serif-i">media</span></h2><p class="sub">Selected, chronological.</p></div></div>
-      <div class="speak-list">
-        <div class="speak-row">
-          <div class="date">2026-05-15</div>
-          <div><div class="st">Booth + panel · PEGS Boston 2026</div><div class="sv">PEGS Summit, Boston · ENPICOM booth lead, immune-repertoire NGS conversations.</div></div>
-          <div class="role-pill">Booth lead</div>
-        </div>
-        <div class="speak-row">
-          <div class="date">2026-04-23</div>
-          <div><div class="st">Data Governance in Pharma: Navigating the Digital &amp; AI Revolution</div><div class="sv">Pistoia Alliance · European Life Science Informatics Forum Benelux (5th) · GSK Wavre.</div></div>
-          <div class="role-pill">Speaker + host</div>
-        </div>
-        <div class="speak-row">
-          <div class="date">2024 → 2025</div>
-          <div><div class="st">Invited talks: FAIR, AI in drug discovery, knowledge graphs</div><div class="sv">Pharma + biotech partner sessions across Europe. Full list on request.</div></div>
-          <div class="role-pill">Speaker</div>
+          <p class="eyebrow" style="margin-bottom:18px;"><span class="tk">//</span> Where</p>
+          <p style="font-size:16px; line-height:1.6; color:var(--ink-dim); max-width:420px; margin:0;">Netherlands, remote across Europe, the Gulf and Asia. References shared on the call.</p>
         </div>
       </div>
     </div>
@@ -1126,8 +974,8 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     <div class="page-head">
       <p class="eyebrow"><span class="tk">//</span> Contact</p>
       <h1>Let's see if RadTech is the <span class="serif-i">right call</span>.</h1>
-      <p class="lede">A 30-minute discovery call, free, no pitch. I ask the questions that decide whether you actually need an outside specialist. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
-      <div style="margin:28px 0 8px;"><a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a discovery call <span class="arw">→</span></a></div>
+      <p class="lede">A 15-minute call, free, no pitch. If we are a fit, you get a fixed-scope proposal within 48 hours.</p>
+      <div style="margin:28px 0 8px;"><a class="btn btn-primary" href="https://cal.com/radtech-solutions-yjxizt/15min" target="_blank" rel="noopener">Book a 15-minute call <span class="arw">→</span></a></div>
     </div>
   </section>
 
@@ -1138,10 +986,9 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
           <p class="eyebrow" style="margin-bottom:14px;"><span class="tk">//</span> Direct</p>
           <div class="contact-direct">
             <span class="k">Email</span> · <a href="mailto:contact@radtech.nl">contact@radtech.nl</a><br>
-            <span class="k">LinkedIn</span> · <a href="https://www.linkedin.com/in/vanbug/" target="_blank" rel="noopener">/in/vanbug</a><br>
-            <span class="k">Based</span> · Amsterdam, NL
+            <span class="k">Based</span> · Netherlands
           </div>
-          <p style="margin-top:22px; font-size:14px; color:var(--ink-faint); max-width:420px;">RadTech works with teams doing serious technical work across life sciences, deep tech, and data-intensive industries, plus my own AI products on the side. If we are not the right fit, I'll say so on the call.</p>
+          <p style="margin-top:22px; font-size:14px; color:var(--ink-faint); max-width:420px;">RadTech works with founders, leadership teams and technical leads. If we are not the right fit, we will say so on the call.</p>
         </div>
       </div>
     </div>
@@ -1152,15 +999,14 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   <div class="footer-inner">
     <div class="footer-nav">
       <span class="teal">// RadTech</span>
-      <a data-nav="home">Home</a>
-      <a data-nav="work">Portfolio</a>
-      <a data-nav="projects">Projects</a>
-      <a data-nav="services">Services</a>
-      <a data-nav="about">About</a>
-      <a data-nav="contact">Contact</a>
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </div>
     <div class="footer-strip">
-      <div>RadTech · Sukhi Singh, founder · Amsterdam, NL · AI &amp; data strategy</div>
+      <div>RadTech · Apps, web, applied AI and founder advisory · Netherlands</div>
       <div><a href="mailto:contact@radtech.nl" style="color:inherit;">contact@radtech.nl</a></div>
     </div>
   </div>
@@ -1173,17 +1019,35 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
 (function () {
   'use strict';
 
-  /* ---------- page routing (hybrid: home scroll + deep pages) ---------- */
-  function showPage(name) {
+  /* ---------- page routing (hash based: deep links, back button, per-page titles) ---------- */
+  const PAGES = ['home', 'services', 'work', 'pourtrait', 'about', 'contact'];
+  const PARENT = { pourtrait: 'work' };
+  const TITLES = {
+    home: 'RadTech: apps, web products, applied AI and founder advisory',
+    services: 'Services · RadTech',
+    work: 'Work · RadTech',
+    pourtrait: 'Pourtrait, coffee discovery app · RadTech',
+    about: 'Why RadTech · RadTech',
+    contact: 'Contact · RadTech'
+  };
+  function showPage(name, scroll) {
+    if (PAGES.indexOf(name) < 0) name = 'home';
     document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + name));
-    document.querySelectorAll('#mainNav a').forEach(a => a.classList.toggle('active', a.dataset.nav === name));
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.querySelectorAll('#mainNav a, .footer-nav a').forEach(a => {
+      const on = a.dataset.nav === (PARENT[name] || name);
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'instant' });
     document.body.dataset.page = name;
+    document.title = TITLES[name];
   }
-  window.showPage = showPage;
-
+  function route() { showPage((location.hash || '#home').slice(1)); closeMobileNav(); }
+  window.addEventListener('hashchange', route);
   document.querySelectorAll('[data-nav]').forEach(a => {
-    a.addEventListener('click', e => { e.preventDefault(); showPage(a.dataset.nav); closeMobileNav(); });
+    a.addEventListener('click', e => {
+      if (('#' + a.dataset.nav) === location.hash) { e.preventDefault(); showPage(a.dataset.nav); closeMobileNav(); }
+    });
   });
 
   /* ---------- mobile nav toggle ---------- */
@@ -1201,16 +1065,16 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     });
   }
   window.addEventListener('resize', () => { if (window.innerWidth > 920) closeMobileNav(); });
-  document.querySelectorAll('[data-go]').forEach(el => {
-    el.style.cursor = 'pointer';
-    el.addEventListener('click', e => { e.preventDefault(); showPage(el.dataset.go); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+  document.addEventListener('click', e => {
+    if (mainNav && mainNav.classList.contains('open') && !e.target.closest('.site-header')) closeMobileNav();
   });
   // in-page anchor links on home
   document.querySelectorAll('[data-scroll]').forEach(el => {
     el.style.cursor = 'pointer';
     el.addEventListener('click', e => {
       e.preventDefault();
-      if (document.body.dataset.page !== 'home') showPage('home');
+      if (document.body.dataset.page !== 'home') { history.replaceState(null, '', '#home'); showPage('home', false); }
       const t = document.getElementById(el.dataset.scroll);
       if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
     });
@@ -1221,7 +1085,7 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   const tBtn = document.getElementById('themeToggle');
   function setTheme(light) {
     root.classList.toggle('light', light);
-    if (tBtn) tBtn.innerHTML = light ? sunSVG() : moonSVG();
+    if (tBtn) { tBtn.innerHTML = light ? sunSVG() : moonSVG(); tBtn.setAttribute('aria-pressed', String(light)); }
     try { localStorage.setItem('rt-theme', light ? 'light' : 'dark'); } catch (e) {}
   }
   function moonSVG(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'; }
@@ -1233,17 +1097,29 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   })();
   if (tBtn) tBtn.addEventListener('click', () => setTheme(!root.classList.contains('light')));
 
-  /* ---------- rotating headline word ---------- */
-  (function rotate() {
-    const el = document.getElementById('rotWord');
-    if (!el) return;
-    const words = ['drug discovery', 'research', 'operations', 'strategy', 'biotech', 'consumer apps', 'AI agents', 'products'];
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = 'drug discovery'; return; }
+
+  /* ---------- rotating headline pair ---------- */
+  (function rotatePair() {
+    const a = document.getElementById('rotA'), b = document.getElementById('rotB');
+    const h1 = a && a.closest('h1');
+    if (!a || !b || !h1) return;
+    const pairs = [['product', 'founder'], ['app', 'CEO'], ['platform', 'team'], ['website', 'business'], ['AI', 'board']];
+    // reserve the tallest variant so the lede never jumps when words change
+    function reserve() {
+      let max = 0;
+      pairs.forEach(p => { a.textContent = p[0]; b.textContent = p[1]; max = Math.max(max, h1.offsetHeight); });
+      a.textContent = pairs[0][0]; b.textContent = pairs[0][1];
+      h1.style.minHeight = max + 'px';
+    }
+    reserve();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+    window.addEventListener('resize', reserve);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let i = 0;
     setInterval(() => {
-      i = (i + 1) % words.length;
-      el.classList.add('swap');
-      setTimeout(() => { el.innerHTML = words[i].replace(/ /g, '&nbsp;'); el.classList.remove('swap'); }, 400);
+      i = (i + 1) % pairs.length;
+      a.classList.add('swap'); b.classList.add('swap');
+      setTimeout(() => { a.textContent = pairs[i][0]; b.textContent = pairs[i][1]; a.classList.remove('swap'); b.classList.remove('swap'); }, 400);
     }, 3400);
   })();
 
@@ -1421,7 +1297,10 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     /* ---- loop (continuous; under reduced-motion, redraw only on interaction) ---- */
     let queued = false;
     function requestDraw() { if (reduce && !queued) { queued = true; requestAnimationFrame(() => { queued = false; step(); draw(); }); } }
-    function frame() { step(); draw(); requestAnimationFrame(frame); }
+    function frame() {
+      if (!document.hidden && document.body.dataset.page === 'home') { step(); draw(); }
+      requestAnimationFrame(frame);
+    }
     if (reduce) { draw(); } else { requestAnimationFrame(frame); }
   })();
 
@@ -1435,7 +1314,7 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
     els.forEach(el => { el.style.opacity = 0; el.style.transform = 'translateY(16px)'; el.style.transition = 'opacity .6s ease, transform .6s ease'; io.observe(el); });
   })();
 
-  showPage('home');
+  route();
 })();
 </script>
 </body>
