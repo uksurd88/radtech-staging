@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RadTech blog</title>
+    <link>https://radtech.nl/blog/</link>
+    <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Deciding What to Omit in the First AI Assisted Release</title>
+      <link>https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Apps</category>
+      <description>You will learn how to turn interview notes into user stories, rank features into must-have and later groups, and validate a clickable prototype before…</description>
+      <enclosure url="https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/card.png" length="223689" type="image/png" />
+    </item>
+  </channel>
+</rss>
