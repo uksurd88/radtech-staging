@@ -171,6 +171,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
 }
 #helix { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; opacity: 0; transition: opacity .9s ease; touch-action: pan-y; }
 .hero.gl-on #helix { opacity: 1; }
+#helix { -webkit-mask-image: linear-gradient(90deg, transparent 44%, rgba(0,0,0,.3) 60%, #000 76%); mask-image: linear-gradient(90deg, transparent 44%, rgba(0,0,0,.3) 60%, #000 76%); }
+@media (max-width: 759px) {
+  #helix { -webkit-mask-image: linear-gradient(180deg, #000 34%, rgba(0,0,0,.4) 44%, transparent 54%); mask-image: linear-gradient(180deg, #000 34%, rgba(0,0,0,.4) 44%, transparent 54%); }
+}
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
@@ -574,7 +578,9 @@ attribute vec2 aInfo;            /* x: node id for the scatter, negative for rod
 uniform mat4 uVP;
 uniform mat4 uModel;
 uniform mat3 uNrm;
-uniform float uScatter;
+uniform float uScatter;          /* click pulse */
+uniform float uAsm;              /* assembly clock, 0 to about 2 */
+uniform float uMaxId;
 varying vec3 vN;
 varying vec3 vW;
 varying float vY;
@@ -586,7 +592,14 @@ vec3 hash3(float n){
 }
 void main(){
   vec3 lp=aPos;
-  if(aInfo.x>=0.0&&uScatter>0.0002)lp+=hash3(aInfo.x+7.0)*uScatter;
+  if(aInfo.x>=0.0){
+    /* nodes arrive in a wave from the bottom of the strand, easing out */
+    float d=aInfo.x/uMaxId*0.9;
+    float t=clamp((uAsm+d*(-1.0))/0.75,0.0,1.0);
+    float e=1.0+pow(1.0+t*(-1.0),3.0)*(-1.0);
+    float amt=(1.0+e*(-1.0))*1.8+uScatter;
+    if(amt>0.0002)lp+=hash3(aInfo.x+7.0)*amt;
+  }
   vY=aPos.y;
   vec4 w=uModel*vec4(lp,1.0);
   vW=w.xyz;vN=uNrm*aNormal;vMat=aInfo.y;
@@ -595,7 +608,7 @@ void main(){
 </script>
 
 <script id="rt-fs" type="x-shader/x-fragment">
-precision mediump float;
+precision highp float;
 varying vec3 vN;
 varying vec3 vW;
 varying float vY;
@@ -610,6 +623,7 @@ uniform float uLight;            /* 0 dark theme, 1 light theme */
 uniform float uRodFade;
 uniform vec2 uCharge;            /* x: position along the strand, y: strength */
 uniform vec2 uFade;              /* x: nearest distance, y: depth range */
+uniform float uAlpha;            /* overall opacity of the helix */
 const vec3 L=vec3(-0.4523,0.7237,0.5227);
 void main(){
   vec3 n=normalize(vN);
@@ -624,14 +638,14 @@ void main(){
   alb=mix(alb,uGlow,k);emit=max(emit,0.9*k);
   float diff=max(dot(n,L),0.0);
   vec3 h=normalize(L+v);
-  float spec=pow(max(dot(n,h),0.0),56.0);
+  float spec=pow(max(dot(n,h),0.0),90.0)*0.85+pow(max(dot(n,h),0.0),18.0)*0.18;
   float rim=pow(1.0+max(dot(n,v),0.0)*(-1.0),3.0);
   vec3 col=alb*(mix(0.30,0.58,uLight)+diff*mix(0.85,0.50,uLight))
           +alb*emit*mix(1.3,0.25,uLight)
           +vec3(spec)*mix(0.55,0.40,uLight)
           +rim*alb*mix(0.6,0.2,uLight);
   float depth=clamp((length(vW+uCam*(-1.0))+uFade.x*(-1.0))/uFade.y,0.0,1.0);
-  a*=1.0+depth*(-0.62);
+  a*=(1.0+depth*(-0.62))*uAlpha;
   gl_FragColor=vec4(min(col,vec3(1.0))*a,a);
 }
 </script>
@@ -698,7 +712,7 @@ function rtHelix(){
   function layout(asp){
     /* 0 on a portrait phone, 1 on a landscape desktop */
     var t=Math.min(1,Math.max(0,(asp+(-0.6))/0.8)),halfW=10/F*asp;
-    return{sc:lerp(0.8,1.2,t),cx:halfW*lerp(0.1,0.5,t),cy:lerp(2.75,0.25,t),tz:lerp(1.0,0.6,t)};
+    return{sc:lerp(0.8,1.2,t),cx:halfW*lerp(0.1,0.66,t),cy:lerp(2.75,0.25,t),tz:lerp(1.0,0.6,t)};
   }
 
   /* ---------- state ---------- */
@@ -713,8 +727,8 @@ function rtHelix(){
     /* a signal runs up the strand every six seconds, teal then amber */
     var cyc=t/6,ph=cyc+Math.floor(cyc)*(-1),run=Math.min(1,Math.max(0,(ph+(-0.1))/0.3));
     var charge=[lerp(-3.4,3.4,run),Math.sin(Math.PI*run)*ease];
-    return{t:t,mdl:mdl,sc:L.sc,scatter:1.3*(1+ease*(-1))+1.1*pulse,
-      rodFade:Math.min(1,Math.max(0,(as+(-0.35))/0.5))*(1+Math.min(1,pulse*1.4)*(-1)),
+    return{t:t,mdl:mdl,sc:L.sc,scatter:1.1*pulse,asm:Math.max(0,(t+(-0.1))/1.8)*1.9,
+      rodFade:Math.min(1,Math.max(0,(t+(-1.3))/1.2))*(1+Math.min(1,pulse*1.4)*(-1)),
       charge:charge,chargeCol:(Math.floor(cyc)%2)?pal.amber:pal.glow};
   }
   function size(){
@@ -743,7 +757,7 @@ function rtHelix(){
     for(i=0;i<n;i++){var an=gl.getActiveAttrib(p,i).name;p.a[an]=gl.getAttribLocation(p,an)}
     return p;
   }
-  var pos=[],nrm=[],inf=[],SPH=unitSphere(2),SEG=12;
+  var pos=[],nrm=[],inf=[],SPH=unitSphere(coarse?3:4),SEG=coarse?18:24;
   function pushV(p,n,id,m){pos.push(p[0],p[1],p[2]);nrm.push(n[0],n[1],n[2]);inf.push(id,m)}
   function addSphere(c,r,id,m){for(var i=0;i<SPH.length;i++)for(var j=0;j<3;j++){var u=SPH[i][j];pushV([c[0]+u[0]*r,c[1]+u[1]*r,c[2]+u[2]*r],u,id,m)}}
   function addRod(p,e,r){
@@ -787,6 +801,8 @@ function rtHelix(){
     gl.uniform3fv(P.u.uGlow,s.chargeCol);
     gl.uniform1f(P.u.uLight,pal.light);
     gl.uniform1f(P.u.uScatter,s.scatter);
+    gl.uniform1f(P.u.uAsm,s.asm);gl.uniform1f(P.u.uMaxId,N*4+1);
+    gl.uniform1f(P.u.uAlpha,pal.light?0.7:0.78);
     gl.uniform1f(P.u.uRodFade,s.rodFade);
     gl.uniform2f(P.u.uCharge,s.charge[0],s.charge[1]);
     gl.uniform2f(P.u.uFade,10+R*s.sc*(-1),2*R*s.sc+0.3);
@@ -804,7 +820,7 @@ function rtHelix(){
     var t0=performance.now();
     draw(now+16);gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px);
     var ms=performance.now()+t0*(-1);
-    q=Math.min(maxQ,Math.max(Math.min(1,maxQ),maxQ*Math.sqrt(targetMs/Math.max(ms,0.3))));
+    q=Math.min(maxQ,Math.max(Math.min(1.5,maxQ),maxQ*Math.sqrt(targetMs/Math.max(ms,0.3))));
     window.__rtHero={q:Math.round(q*100)/100,probeMs:Math.round(ms*100)/100,maxQ:maxQ,verts:nVerts};
     size();
   }
