@@ -6,7 +6,16 @@
     <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Write AI pilots with success criteria before the model</title>
+      <link>https://radtech.nl/blog/write-ai-pilots-with-success-criteria-before-the-model/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/write-ai-pilots-with-success-criteria-before-the-model/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Applied AI</category>
+      <description>A clear definition of success protects your budget and avoids the risk of a stalled project. This guide shows how to set test cases, assign ownership…</description>
+      <enclosure url="https://radtech.nl/blog/write-ai-pilots-with-success-criteria-before-the-model/card.png" length="980858" type="image/png" />
+    </item>
     <item>
       <title>Deciding What to Omit in the First AI Assisted Release</title>
       <link>https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</link>
