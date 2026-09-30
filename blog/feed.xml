@@ -6,7 +6,16 @@
     <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Integrating AI Agents into Core Workflows This Quarter</title>
+      <link>https://radtech.nl/blog/integrating-ai-agents-into-core-workflows-this-quarter/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/integrating-ai-agents-into-core-workflows-this-quarter/</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Applied AI</category>
+      <description>You&apos;ll learn which repetitive tasks are ready for an AI agent, how to design a simple approval loop, and a step-by-step plan to launch a pilot before the…</description>
+      <enclosure url="https://radtech.nl/blog/integrating-ai-agents-into-core-workflows-this-quarter/card.png" length="235186" type="image/png" />
+    </item>
     <item>
       <title>Write AI pilots with success criteria before the model</title>
       <link>https://radtech.nl/blog/write-ai-pilots-with-success-criteria-before-the-model/</link>
