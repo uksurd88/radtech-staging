@@ -6,7 +6,16 @@
     <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Coding agents change the build versus buy call</title>
+      <link>https://radtech.nl/blog/coding-agents-change-the-build-versus-buy-call/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/coding-agents-change-the-build-versus-buy-call/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <category>Apps</category>
+      <description>Coding agents are shifting how teams decide between licensing software and writing their own code. McKinsey&apos;s report State of AI 2026 notes that 32% of…</description>
+      <enclosure url="https://radtech.nl/blog/coding-agents-change-the-build-versus-buy-call/card.png" length="245381" type="image/png" />
+    </item>
     <item>
       <title>Integrating AI Agents into Core Workflows This Quarter</title>
       <link>https://radtech.nl/blog/integrating-ai-agents-into-core-workflows-this-quarter/</link>
