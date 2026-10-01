@@ -5,7 +5,7 @@
   </url>
   <url>
     <loc>https://radtech.nl/blog/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</loc>
@@ -18,5 +18,9 @@
   <url>
     <loc>https://radtech.nl/blog/integrating-ai-agents-into-core-workflows-this-quarter/</loc>
     <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/blog/coding-agents-change-the-build-versus-buy-call/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
 </urlset>
