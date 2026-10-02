@@ -6,7 +6,16 @@
     <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>AI code generation makes testing and review the core focus</title>
+      <link>https://radtech.nl/blog/ai-code-generation-makes-testing-and-review-the-core-focus/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/ai-code-generation-makes-testing-and-review-the-core-focus/</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <category>Web</category>
+      <description>Developers are now using AI tools in the majority of projects, but the shift in responsibility lands on the quality gate. This article shows how to embed…</description>
+      <enclosure url="https://radtech.nl/blog/ai-code-generation-makes-testing-and-review-the-core-focus/card.png" length="924539" type="image/png" />
+    </item>
     <item>
       <title>Coding agents change the build versus buy call</title>
       <link>https://radtech.nl/blog/coding-agents-change-the-build-versus-buy-call/</link>
