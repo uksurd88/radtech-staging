@@ -152,6 +152,25 @@ nav.main-nav a.active::after { content: ""; position: absolute; left: 0; right: 
 .page-head h1 .serif-i { color: var(--amber); }
 .page-head .lede { font-size: 19px; line-height: 1.55; color: var(--ink-dim); max-width: 680px; margin: 0; text-wrap: pretty; }
 .page-head .feed { margin-top: 24px; }
+/* ---------- title marquee ---------- */
+.marquee { border-block: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 2.5%, transparent); margin-top: 40px; display: flex; align-items: stretch; }
+.mq-label { flex: none; display: flex; align-items: center; gap: 8px; padding: 0 20px 0 var(--pad); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); border-right: 1px solid var(--line); background: var(--bg); position: relative; z-index: 1; }
+.mq-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 0 color-mix(in srgb, var(--teal) 60%, transparent); animation: mq-pulse 2.4s ease-out infinite; }
+.mq-viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.mq-track { display: flex; width: max-content; animation: mq-scroll var(--mq-dur, 45s) linear infinite; }
+.marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
+.mq-track ul { display: flex; margin: 0; padding: 0; list-style: none; }
+.mq-track li { display: flex; align-items: center; }
+.mq-track li::after { content: "✦"; color: var(--amber); font-size: 11px; padding: 0 22px; opacity: .8; }
+.mq-item { display: inline-flex; align-items: baseline; gap: 12px; padding: 16px 0; color: var(--ink); white-space: nowrap; min-height: 44px; }
+.mq-topic { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); border: 1px solid color-mix(in srgb, var(--teal) 34%, transparent); padding: 3px 9px; border-radius: 999px; align-self: center; }
+.mq-title { font-family: var(--font-serif); font-style: italic; font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; transition: color .2s; }
+.mq-item .arw { font-size: 14px; color: var(--teal); opacity: 0; transform: translate(-4px, 2px); transition: opacity .2s, transform .2s; }
+.mq-item:hover .mq-title, .mq-item:focus-visible .mq-title { color: var(--teal); }
+.mq-item:hover .arw, .mq-item:focus-visible .arw { opacity: 1; transform: translate(0, 0); }
+.mq-item:focus-visible { outline-offset: -2px; }
+@keyframes mq-scroll { to { transform: translateX(-50%); } }
+@keyframes mq-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--teal) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 8px transparent; } }
 section.band { padding: 48px 0 84px; border-bottom: 1px solid var(--line); }
 .post-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .post-list > li { border-top: 1px solid var(--line); }
@@ -191,6 +210,10 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 920px) {
+  .marquee { margin-top: 28px; }
+  .mq-label { padding: 0 14px 0 20px; letter-spacing: 0.14em; }
+  .mq-title { font-size: 19px; }
+  .mq-track li::after { padding: 0 16px; }
   :root { --pad: 24px; }
   .header-inner { position: relative; }
   .nav-toggle { display: grid; }
@@ -213,7 +236,13 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
 }
 @media (pointer: coarse) { .theme-toggle, .nav-toggle { width: 44px; height: 44px; } }
 @media (max-width: 480px) { .header-actions .btn { display: none; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mq-track { animation: none; }
+  .mq-track ul[aria-hidden] { display: none; }
+  .mq-viewport { overflow-x: auto; }
+  .mq-label .dot { animation: none; }
+}
 </style>
 </head>
 <body>
@@ -225,7 +254,7 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
       <span>RadTech</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Main">
-      <a href="/#home">Home</a>
+      <a href="/">Home</a>
       <a href="/#services">Services</a>
       <a href="/#work">Work</a>
       <a href="/#about">About</a>
@@ -249,6 +278,27 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
       <h1>Notes from the <span class="serif-i">build</span>.</h1>
       <p class="lede">What we think about apps, web products and applied AI, written for the founders and technical leads who pay for them. Every number links to its source.</p>
       <div class="feed"><a class="txt-link" href="/blog/feed.xml">RSS feed <span class="arw">↗</span></a></div>
+    </div>
+    <div class="marquee" style="--mq-dur: 45s">
+      <div class="mq-label"><span class="dot" aria-hidden="true"></span>Latest</div>
+      <nav class="mq-viewport" aria-label="Latest posts">
+        <div class="mq-track">
+          <ul>
+          <li><a class="mq-item" href="/blog/ai-code-generation-makes-testing-and-review-the-core-focus/"><span class="mq-topic">Web</span><span class="mq-title">AI code generation makes testing and review the core focus</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/coding-agents-change-the-build-versus-buy-call/"><span class="mq-topic">Apps</span><span class="mq-title">Coding agents change the build versus buy call</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/integrating-ai-agents-into-core-workflows-this-quarter/"><span class="mq-topic">Applied AI</span><span class="mq-title">Integrating AI Agents into Core Workflows This Quarter</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/write-ai-pilots-with-success-criteria-before-the-model/"><span class="mq-topic">Applied AI</span><span class="mq-title">Write AI pilots with success criteria before the model</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/"><span class="mq-topic">Apps</span><span class="mq-title">Deciding What to Omit in the First AI Assisted Release</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          </ul>
+          <ul aria-hidden="true">
+          <li><a class="mq-item" href="/blog/ai-code-generation-makes-testing-and-review-the-core-focus/" tabindex="-1"><span class="mq-topic">Web</span><span class="mq-title">AI code generation makes testing and review the core focus</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/coding-agents-change-the-build-versus-buy-call/" tabindex="-1"><span class="mq-topic">Apps</span><span class="mq-title">Coding agents change the build versus buy call</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/integrating-ai-agents-into-core-workflows-this-quarter/" tabindex="-1"><span class="mq-topic">Applied AI</span><span class="mq-title">Integrating AI Agents into Core Workflows This Quarter</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/write-ai-pilots-with-success-criteria-before-the-model/" tabindex="-1"><span class="mq-topic">Applied AI</span><span class="mq-title">Write AI pilots with success criteria before the model</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          <li><a class="mq-item" href="/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/" tabindex="-1"><span class="mq-topic">Apps</span><span class="mq-title">Deciding What to Omit in the First AI Assisted Release</span><span class="arw" aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </section>
 
@@ -332,7 +382,7 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   <div class="footer-inner">
     <div class="footer-nav">
       <span class="teal">// RadTech</span>
-      <a href="/#home">Home</a>
+      <a href="/">Home</a>
       <a href="/#services">Services</a>
       <a href="/#work">Work</a>
       <a href="/#about">About</a>
