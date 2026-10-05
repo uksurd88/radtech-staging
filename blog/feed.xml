@@ -6,7 +6,16 @@
     <atom:link href="https://radtech.nl/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Notes from RadTech on apps, web products and applied AI, written for founders and technical leads. Every number links to its source.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Wire AI into a Core Workflow This Quarter</title>
+      <link>https://radtech.nl/blog/wire-ai-into-a-core-workflow-this-quarter/</link>
+      <guid isPermaLink="true">https://radtech.nl/blog/wire-ai-into-a-core-workflow-this-quarter/</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <category>Applied AI</category>
+      <description>You will learn a step-by-step method to turn a routine business task into a measurable AI win, from spotting the right process to choosing the tool after…</description>
+      <enclosure url="https://radtech.nl/blog/wire-ai-into-a-core-workflow-this-quarter/card.png" length="152990" type="image/png" />
+    </item>
     <item>
       <title>AI code generation makes testing and review the core focus</title>
       <link>https://radtech.nl/blog/ai-code-generation-makes-testing-and-review-the-core-focus/</link>

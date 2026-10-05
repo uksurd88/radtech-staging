@@ -5,7 +5,7 @@
   </url>
   <url>
     <loc>https://radtech.nl/blog/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</loc>
@@ -26,5 +26,9 @@
   <url>
     <loc>https://radtech.nl/blog/ai-code-generation-makes-testing-and-review-the-core-focus/</loc>
     <lastmod>2026-10-02</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/blog/wire-ai-into-a-core-workflow-this-quarter/</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
 </urlset>
