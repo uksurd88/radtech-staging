@@ -249,6 +249,36 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
 .also p { font-family: var(--font-display); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
 .also p span { color: var(--ink-dim); font-family: var(--font-body); font-weight: 400; font-size: 16px; letter-spacing: 0; }
 
+/* ---------- app showcase and GitHub ---------- */
+.showcase { margin-top: 72px; }
+.sc-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 28px; margin-bottom: 24px; padding-top: 22px; border-top: 1px solid var(--line); }
+.sc-head .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.sc-head p { font-family: var(--font-display); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
+.sc-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; }
+.sc-card { border: 1px solid var(--line-2); border-radius: 14px; background: var(--surface); padding: 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.sc-card.big { grid-row: span 2; }
+.sc-card h3 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -0.02em; line-height: 1.1; }
+.sc-card h3 .serif-i { color: var(--teal); }
+.sc-card .d { color: var(--ink-dim); font-size: 16px; line-height: 1.6; max-width: 52ch; }
+.sc-fig { margin: -24px -24px 8px; padding: 6px 10px; border-radius: 14px 14px 0 0; border-bottom: 1px solid var(--line-2); background: #0e1411; }
+.sc-fig img { width: 100%; height: auto; }
+.sc-cmd { margin: 4px 0 0; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--ink-dim); white-space: pre; overflow-x: auto;
+  background: color-mix(in srgb, var(--bg) 72%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.sc-card .links { margin-top: auto; padding-top: 6px; }
+.gh-band { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; padding: 22px 24px; border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--teal) 42%, transparent);
+  background: radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--teal) 16%, transparent), transparent 62%), var(--surface); }
+.gh-band .gh { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.gh-band .gh svg { width: 34px; height: 34px; flex: none; color: var(--ink); }
+.gh-band p { font-family: var(--font-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); }
+.gh-band p span { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: var(--ink-dim); letter-spacing: 0; }
+.main-nav a.ext::after, .foot-links a.ext::after { content: " ↗"; }
+@media (max-width: 860px) {
+  .sc-grid { grid-template-columns: minmax(0, 1fr); }
+  .sc-card.big { grid-row: auto; }
+  .showcase { margin-top: 56px; }
+}
+
 /* ---------- about ---------- */
 #about { padding: 96px 0 88px; }
 .about-lede { font-size: clamp(20px, 2vw, 25px); line-height: 1.45; color: var(--ink); max-width: 36ch; text-wrap: pretty; }
@@ -357,6 +387,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="/blog/">Blog</a>
+      <a class="ext" href="https://github.com/RadTech-Solutions" target="_blank" rel="noopener">GitHub</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
@@ -413,6 +444,51 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
       <div class="also">
         <span class="k">Own products, built in house</span>
         <p>Kawa <span>AI route planner for motorcyclists, in private beta.</span></p>
+      </div>
+
+      <div class="showcase" id="showcase" aria-labelledby="sc-h">
+        <div class="sc-head">
+          <span class="k" id="sc-h">App showcase</span>
+          <p>Small tools we build and share in the open.</p>
+        </div>
+        <div class="sc-grid">
+          <article class="sc-card big">
+            <figure class="sc-fig"><img src="assets/thcunits-logo.jpg" width="1100" height="394" alt="THC Units logo: a caterpillar made of green buds weaving through the letters THC, next to the word Units filled with grass" loading="lazy" decoding="async"></figure>
+            <p class="meta">Web app <span class="tk">·</span> Live <span class="tk">·</span> Harm reduction</p>
+            <h3>THC Units: cannabis, counted like <span class="serif-i">standard drinks</span>.</h3>
+            <p class="d">Turns flower, concentrates, edibles and oils into standard THC units (1 unit is 5 mg of THC), projects a weekly total, and keeps a private log against the 8 units a week guideline from recent research in <i>Addiction</i>. Runs in the browser; nothing leaves the device.</p>
+            <div class="links">
+              <a class="btn btn-ghost" href="https://uksurd88.github.io/THCUnits/" target="_blank" rel="noopener">Open THC Units <span class="arw" aria-hidden="true">↗</span></a>
+              <a class="txt-link" href="https://github.com/uksurd88/THCUnits" target="_blank" rel="noopener"><span class="u">Source</span> <span class="arw" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="sc-card">
+            <p class="meta">Claude Code mod <span class="tk">·</span> Open source <span class="tk">·</span> MIT</p>
+            <h3>modwall: a <span class="serif-i">firewall</span> for mods.</h3>
+            <p class="d">Shows what each mod can reach as it loads (prompts, tool approvals, network, processes) and audits, holds or refuses it by your own policy.</p>
+<pre class="sc-cmd">/plugin marketplace add RadTech-Solutions/modwall
+/plugin install modwall@modwall</pre>
+            <div class="links">
+              <a class="txt-link" href="https://github.com/RadTech-Solutions/modwall" target="_blank" rel="noopener"><span class="u">modwall on GitHub</span> <span class="arw" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="sc-card">
+            <p class="meta">Claude Code mod <span class="tk">·</span> Open source <span class="tk">·</span> MIT</p>
+            <h3>agent-pager: your agent, <span class="serif-i">on your phone</span>.</h3>
+            <p class="d">Pages you through ntfy or Telegram when your coding agent finishes a long task or needs a decision, and lets you reply from the phone.</p>
+<pre class="sc-cmd">/plugin marketplace add RadTech-Solutions/agent-pager
+/plugin install agent-pager@agent-pager</pre>
+            <div class="links">
+              <a class="txt-link" href="https://github.com/RadTech-Solutions/agent-pager" target="_blank" rel="noopener"><span class="u">agent-pager on GitHub</span> <span class="arw" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <div class="gh-band">
+          <div class="gh"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <p>RadTech on GitHub<span>Our open-source tools, mods and experiments live at RadTech-Solutions.</span></p>
+          </div>
+          <a class="btn btn-primary" href="https://github.com/RadTech-Solutions" target="_blank" rel="noopener">Follow on GitHub <span class="arw" aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -495,7 +571,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
 <footer class="site-footer">
   <div class="footer-inner">
     <span><span class="tk">//</span> RadTech <span class="tk">·</span> apps, web, applied AI and founder advisory <span class="tk">·</span> Netherlands</span>
-    <span class="foot-links"><a href="/blog/">Blog</a> <span class="tk">·</span> <a href="mailto:contact@radtech.nl">contact@radtech.nl</a></span>
+    <span class="foot-links"><a href="/blog/">Blog</a> <span class="tk">·</span> <a class="ext" href="https://github.com/RadTech-Solutions" target="_blank" rel="noopener">GitHub</a> <span class="tk">·</span> <a href="mailto:contact@radtech.nl">contact@radtech.nl</a></span>
   </div>
 </footer>
 
