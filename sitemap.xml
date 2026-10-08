@@ -5,7 +5,7 @@
   </url>
   <url>
     <loc>https://radtech.nl/blog/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://radtech.nl/blog/deciding-what-to-omit-in-the-first-ai-assisted-release/</loc>
@@ -34,5 +34,9 @@
   <url>
     <loc>https://radtech.nl/blog/optimizing-the-shared-inbox-with-ai/</loc>
     <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/blog/treat-a-claude-code-mod-like-a-dependency-with-your-permissions/</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
 </urlset>
