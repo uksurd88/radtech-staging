@@ -244,6 +244,22 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
   .mq-viewport { overflow-x: auto; }
   .mq-label .dot { animation: none; }
 }
+
+/* ---------- header matched to the homepage ---------- */
+header.site-header { height: 64px; background: color-mix(in srgb, var(--bg) 72%, transparent); }
+.header-inner { height: 100%; padding: 0 var(--pad); gap: 20px; position: relative; }
+nav.main-nav { gap: 4px; padding: 5px; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 4%, transparent); }
+nav.main-nav a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-family: var(--font-display); font-size: 16px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--ink-dim); transition: color .2s, background-color .2s; }
+nav.main-nav a:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+nav.main-nav a.active { color: var(--teal); background: color-mix(in srgb, var(--teal) 15%, transparent); }
+nav.main-nav a.active::after { display: none; }
+.header-actions { gap: 12px; }
+.theme-toggle, .nav-toggle { width: 44px; height: 44px; }
+.theme-toggle svg, .nav-toggle svg { width: 17px; height: 17px; }
+@media (max-width: 920px) {
+  nav.main-nav { border-radius: 0; border-width: 0 0 1px; padding: 6px var(--pad) 16px; background: var(--bg); gap: 0; }
+  nav.main-nav a { min-height: 56px; padding: 0 12px; border-radius: 12px; font-size: 19px; border-bottom: 0; }
+}
 </style>
 </head>
 <body>
@@ -255,11 +271,11 @@ footer.site-footer { padding: 46px 0 36px; background: var(--bg-2); }
       <span>RadTech</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Main">
-      <a href="/">Home</a>
-      <a href="/#services">Services</a>
       <a href="/#work">Work</a>
+      <a href="/#services">Services</a>
       <a href="/#about">About</a>
       <a href="/blog/" class="active" aria-current="page">Blog</a>
+      <a href="https://github.com/RadTech-Solutions" target="_blank" rel="noopener">GitHub</a>
       <a href="/#contact">Contact</a>
     </nav>
     <div class="header-actions">
