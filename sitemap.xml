@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://radtech.nl/</loc>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://radtech.nl/blog/</loc>
@@ -38,5 +39,25 @@
   <url>
     <loc>https://radtech.nl/blog/treat-a-claude-code-mod-like-a-dependency-with-your-permissions/</loc>
     <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/apps/pourtrait.html</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/apps/kawa.html</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/apps/modwall.html</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/apps/agent-pager.html</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://radtech.nl/apps/thc-units.html</loc>
+    <lastmod>2026-10-10</lastmod>
   </url>
 </urlset>
